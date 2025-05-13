@@ -6,38 +6,38 @@
         - Dealt with all the GSoC-related bureaucratic stuff
         - Created this repo to share with my mentors what I am working / have worked on
     - 05/12 - 05/18:
-        - TODO
+        - Prototyping a basic CLI in order to try to identify possible issues that could arise (so that I can discuss them with the mentors before the Coding Period starts)
     - 05/19 - 05/15:
-        - TODO
+        - ...
     - 05/26 - 06/01:
-        - TODO
+        - ...
 - **Coding Period (1st half)**:
     - 06/02 - 06/08 (week 1):
-        - TODO
+        - ...
     - 06/09 - 06/15 (week 2):
-        - TODO
+        - ...
     - 06/16 - 06/22 (week 3):
-        - TODO
+        - ...
     - 06/23 - 06/29 (week 4):
-        - TODO
+        - ...
     - 06/30 - 07/06 (week 5):
-        - TODO
+        - ...
     - 07/07 - 07/13 (week 6):
-        - TODO
+        - ...
     - 07/14 - 07/20 (*Midterm evaluation*):
-        - TODO
+        - ...
 - **Coding Period (2nd half)**:
     - 07/14 - 07/20 (week 7):
-        - TODO
+        - ...
     - 07/21 - 07/27 (week 8):
-        - TODO
+        - ...
     - 07/28 - 08/03 (week 9):
-        - TODO
-    - 08/14 - 08/10 (week 10):
-        - TODO
-    - 08/14 - 08/17 (week 11):
-        - TODO
-    - 08/14 - 08/24 (week 12):
-        - TODO
-    - 08/14 - 08/31 (*Final evaluation*):
-        - TODO
+        - ...
+    - 08/04 - 08/10 (week 10):
+        - ...
+    - 08/11 - 08/17 (week 11):
+        - ...
+    - 08/18 - 08/24 (week 12):
+        - ...
+    - 08/25 - 08/31 (*Final evaluation*):
+        - ...
