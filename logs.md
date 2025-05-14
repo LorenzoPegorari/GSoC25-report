@@ -1,12 +1,17 @@
 # GSoC 2025 Weekly Logs
 
 - **Community Bonding Period**:
-    - 05/08 - 05/11 (*Accepted projects announced*):
-        - Discovered that my project got accepted! 😊🎉
-        - Dealt with all the GSoC-related bureaucratic stuff
-        - Created this repo to share with my mentors what I am working / have worked on
-    - 05/12 - 05/18:
-        - Prototyping a basic CLI in order to try to identify possible issues that could arise (so that I can discuss them with the mentors before the Coding Period starts)
+    - 05/08: Discovered that my project got accepted! 😊🎉
+    - 05/09: Dealt with all the GSoC-related bureaucratic stuff
+    - 05/10: Created [this repo](https://github.com/LorenzoPegorari/GSoC25-report) to share with my mentors what I am working / have worked on
+    - 05/11: ~
+    - 05/12: Reverted the hacks done to create a personalized title bar and restored the "standard Qt" look (this code was only tested on Ubuntu 24.04.1 LTS and no PR was made)
+    - 05/13: Started working on prototyping a basic CLI in order to try to identify possible issues that could arise (so that I can discuss them with the mentors before the Coding Period starts)
+    - 05/14: Partecipated in the "Welcome 2025 Contributor talk and Q&A" by the GSoC team
+    - 05/15:
+    - 05/16:
+    - 05/17:
+    - 05/18:
     - 05/19 - 05/15:
         - ...
     - 05/26 - 06/01:
