@@ -1,48 +1,44 @@
-# GSoC 2025 Weekly Logs
+# GSoC 2025 Daily Logs
 
 - **Community Bonding Period**:
-    - 05/08: Discovered that my project got accepted! 😊🎉
-    - 05/09: Dealt with all the GSoC-related bureaucratic stuff
-    - 05/10: Created [this repo](https://github.com/LorenzoPegorari/GSoC25-report) to share with my mentors what I am working / have worked on
-    - 05/11: ~
-    - 05/12: Reverted the hacks done to create a personalized title bar and restored the "standard Qt" look (this code was only tested on Ubuntu 24.04.1 LTS and no PR was made)
-    - 05/13: Started working on prototyping a basic CLI in order to try to identify possible issues that could arise (so that I can discuss them with the mentors before the Coding Period starts)
-    - 05/14: Partecipated in the "Welcome 2025 Contributor talk and Q&A" by the GSoC team
-    - 05/15:
-    - 05/16:
-    - 05/17:
-    - 05/18:
-    - 05/19 - 05/15:
-        - ...
-    - 05/26 - 06/01:
-        - ...
+    - Thu 05/08: Discovered that my project got accepted! 😊🎉
+    - Fri 05/09: Dealt with all the GSoC-related bureaucratic stuff
+    - Sat 05/10: Created [this repo](https://github.com/LorenzoPegorari/GSoC25-report) to share with my mentors what I am working / have worked on
+    - Mon 05/12: Reverted the hacks done to create a personalized title bar and restored the "standard Qt" look (this code was only tested on Ubuntu 24.04.1 LTS and no PR was made)
+    - Tue 05/13: Started working on prototyping a basic CLI in order to try to identify possible issues that could arise (so that I can discuss them with the mentors before the Coding Period starts)
+    - Wed 05/14: Participated in the "Welcome 2025 Contributor talk and Q&A" by the GSoC team
+    - Fri 05/16: Kept working on the CLI prototype
+    - Sat 05/17:
+    - Sun 05/18:
+    - ...
 - **Coding Period (1st half)**:
-    - 06/02 - 06/08 (week 1):
+    - Week 1:
         - ...
-    - 06/09 - 06/15 (week 2):
+    - Week 2:
         - ...
-    - 06/16 - 06/22 (week 3):
+    - Week 3:
         - ...
-    - 06/23 - 06/29 (week 4):
+    - Week 4:
         - ...
-    - 06/30 - 07/06 (week 5):
+    - Week 5:
         - ...
-    - 07/07 - 07/13 (week 6):
+    - Week 6:
         - ...
-    - 07/14 - 07/20 (*Midterm evaluation*):
+    - *Midterm evaluation*:
         - ...
 - **Coding Period (2nd half)**:
-    - 07/14 - 07/20 (week 7):
+    - Week 7:
         - ...
-    - 07/21 - 07/27 (week 8):
+    - Week 8:
         - ...
-    - 07/28 - 08/03 (week 9):
+    - Week 9:
         - ...
-    - 08/04 - 08/10 (week 10):
+    - Week 10:
         - ...
-    - 08/11 - 08/17 (week 11):
+    - Week 11:
         - ...
-    - 08/18 - 08/24 (week 12):
+    - Week 12:
         - ...
-    - 08/25 - 08/31 (*Final evaluation*):
+    - *Final evaluation*:
         - ...
+
