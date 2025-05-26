@@ -10,7 +10,9 @@
     - *05/15 Thu*: Kept working on the CLI prototype
     - *05/19 Mon*: Tried all day to build and compile brlcad, MOOSE and arbalest on Windows 11, but without any luck (for some reason arbalest cannot execute proberly because it doesn't find `Qt6OpenGLWidgets`). Although, I think that I did spot a bug that can be easily solved: when compiling arbalest, I got the error `rpcndr.h: 'byte': ambiguous symbol` (this is a [known issue with Windows headers](https://developercommunity.visualstudio.com/t/93889)). To fix it, I simply removed the `using namespace std;` in `Utils.h`, and I then changed all the few instances where this statement was meaningful by manually adding `std::`. I will most likely do a PR regarding this later down the road
     - *05/20 Tue*: A storm caused a problem with my Internet Service Provider in my local area, so I basically didn't have Internet all day... I kept trying to build arbalest though, but with no success unfortunately
-    - ...
+    - *05/22 Thu*: Internet got fixed finally. Also I kept working on the CLI prototype, particularly exploring how to use the already created QgConsole (in qtcad)
+    - *05/23 Fri*: Worked on the CLI prototype
+    - *05/25 Sun*: Started working on the new theme creator feature, focusing on how to make it so that themes can be changed at runtime (without closing and reopening the application)
 - **Coding Period (1st half)**:
     - Week 1:
         - ...
