@@ -13,6 +13,9 @@
     - *05/22 Thu*: Internet got fixed finally. Also I kept working on the CLI prototype, particularly exploring how to use the already created QgConsole (in qtcad)
     - *05/23 Fri*: Worked on the CLI prototype
     - *05/25 Sun*: Started working on the new theme creator feature, focusing on how to make it so that themes can be changed at runtime (without closing and reopening the application)
+    - *05/26 Mon*: Kept working on the new theme creator feature
+    - *05/27 Tue*: Found a way to make it so that themes can change at runtime without restarting the application. I need to make it sure that it works correctly in all possible cases
+    - *05/29 Thu*: Worked on the CLI prototype, focusing on the best way to bridge or reuse qtcad's Qt Widgets without breaching arbalest's clean and easy-to-scale implementation
 - **Coding Period (1st half)**:
     - Week 1:
         - ...
