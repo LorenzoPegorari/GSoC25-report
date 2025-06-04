@@ -20,6 +20,8 @@
 - **Coding Period (1st half)**:
     - Week 1:
         - *06/02 Mon*: Prepared 2 PRs that I will do after I can test them on Windows 11. Kept trying to build arbalest on Windows 11
+        - *06/03 Tue*: Worked on fixing how arbalest themes appear on Linux. Kept trying to build arbalest on Windows 11
+        - *06/04 Wed*: Finally built arbalest on Windows 11! Tested on Windows 11 the PR focues on restoring the "standard Qt" look for the title/menu bar
     - Week 2:
         - ...
     - Week 3:
