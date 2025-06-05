@@ -21,7 +21,8 @@
     - Week 1:
         - *06/02 Mon*: Prepared 2 PRs that I will do after I can test them on Windows 11. Kept trying to build arbalest on Windows 11
         - *06/03 Tue*: Worked on fixing how arbalest themes appear on Linux. Kept trying to build arbalest on Windows 11
-        - *06/04 Wed*: Finally built arbalest on Windows 11! Tested on Windows 11 the PR focues on restoring the "standard Qt" look for the title/menu bar
+        - *06/04 Wed*: Finally built arbalest on Windows 11! Opened [this PR](https://github.com/BRL-CAD/arbalest/pull/59). Tested on Windows 11 the [PR](https://github.com/BRL-CAD/arbalest/pull/60) focused on restoring the "standard Qt" look for the title/menu bar
+        - *06/05 Thu*: Worked on fixing how arbalest themes appear on Linux. Opened [this PR](https://github.com/BRL-CAD/arbalest/pull/60)
     - Week 2:
         - ...
     - Week 3:
