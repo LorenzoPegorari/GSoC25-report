@@ -34,6 +34,9 @@
         - *06/07 Sat*: **[PR#59](https://github.com/BRL-CAD/arbalest/pull/59)<sup>1</sup> and [PR#60](https://github.com/BRL-CAD/arbalest/pull/60)<sup>2</sup> got merged!**
     - Week 2:
         - *06/09 Mon*: Worked on <ins>standardizing how themes look on Linux and Windows 11</ins><sup>3</sup>
+        - *06/11 Wed*: Finished <ins>standardizing how themes look on Linux and Windows 11</ins><sup>3</sup>
+        - *06/12 Thu*: Worked on a few bugs related to <ins>how themes look on Linux and Windows 11</ins><sup>3</sup> (e.g: icons colors, refreshing icons at runtime, refreshing properties at runtime, refreshing viewports background colors at runtime, ...)
+        - *06/13 Fri*: Fully implemented support for <ins>changing themes at runtime</ins><sup>3</sup>!
     - Week 3:
         - ...
     - Week 4:
