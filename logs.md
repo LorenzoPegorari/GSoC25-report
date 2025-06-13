@@ -60,3 +60,37 @@
     - *Final evaluation*:
         - ...
 
+## Resources
+
+### Videos
+
+**New Arbalest style and themes on Linux (Ubuntu 24.04.1 LTS)**
+
+<video controls>
+  <source src="assets/arbalest-linux-new.mp4" type="video/mp4">
+</video>
+
+**Old Arbalest style and themes on Linux (Ubuntu 24.04.1 LTS)**
+
+<video controls>
+  <source src="assets/arbalest-linux-old.mp4" type="video/mp4">
+</video>
+
+### Images
+
+**New Arbalest style and light theme on Windows (Windows 11)**
+
+![](assets/arbalest-windows-light-new.png)
+
+**Old Arbalest style and light theme on Windows (Windows 11)**
+
+![](assets/arbalest-windows-light-old.png)
+
+**New Arbalest style and dark theme on Windows (Windows 11)**
+
+![](assets/arbalest-windows-black-new.png)
+
+**Old Arbalest style and dark theme on Windows (Windows 11)**
+
+![](assets/arbalest-windows-black-old.png)
+
