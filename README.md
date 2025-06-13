@@ -1,6 +1,7 @@
 # New BRL-CAD GUI
 
 ![](assets/GSoC25.png)
+
 ![](assets/GSoC_at_BRL-CAD.png)
 
 **My GSoC 2025 project report can be found [here](https://lorenzopegorari.github.io/GSoC25-report/report)**.
