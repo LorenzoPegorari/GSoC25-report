@@ -1,9 +1,18 @@
 # GSoC 2025 Daily Logs
 
+> **Tips on how to read the logs**:
+>
+> In the "*PRs*" section you will find all the pull requests (PRs) related to my *Google Summer of Code 2025* project. 
+>
+> In the "*Logs*" section instead you will find what I worked on each day. Most of the features/bugs I worked on each day are <ins>underlined</ins> and have a superscript number <sup>#n</sup>. This number is equivalent to the number of the PR in which these features/bugs that I have worked on were merged into the code. This was done to show in which PR my work went each day.
+
 ## PRs
 
-1. [PR#59](https://github.com/BRL-CAD/arbalest/pull/59) = Removed using directives in header files
-2. [PR#60](https://github.com/BRL-CAD/arbalest/pull/60) = Reverted the hacks done to create a personalized title bar and restored the "standard Qt" look for the title bar
+- [PR#59](https://github.com/BRL-CAD/arbalest/pull/59) = Removed using directives in header files
+- [PR#60](https://github.com/BRL-CAD/arbalest/pull/60) = Reverted the hacks done to create a personalized title bar and restored the "standard Qt" look for the title bar
+- [PR#61](https://github.com/BRL-CAD/arbalest/pull/61) = ...
+- [PR#62](https://github.com/BRL-CAD/arbalest/pull/62) = ...
+- [PR#63](https://github.com/BRL-CAD/arbalest/pull/63) = ...
 
 ## Logs
 
@@ -11,34 +20,34 @@
     - *05/08 Thu*: Discovered that my project got accepted! 😊🎉
     - *05/09 Fri*: Dealt with all the GSoC-related bureaucratic stuff
     - *05/10 Sat*: Created [this repo](https://github.com/LorenzoPegorari/GSoC25-report) to share with my mentors what I am working / have worked on
-    - *05/12 Mon*: Made a quick fix to <ins>revert the hacks done to create a personalized title bar and restore the "standard Qt" look</ins><sup>2</sup>. I tested this code only on Ubuntu 24.04.1 LTS
-    - *05/13 Tue*: Started working on <ins>prototyping a basic CLI</ins><sup>4</sup> in order to try to identify possible issues that could arise (so that I can discuss them with the mentors before the Coding Period starts)
+    - *05/12 Mon*: Made a quick fix to <ins>revert the hacks done to create a personalized title bar and restore the "standard Qt" look</ins><sup>#60</sup>. I tested this code only on Ubuntu 24.04.1 LTS
+    - *05/13 Tue*: Started working on <ins>prototyping a basic CLI</ins><sup>?</sup> in order to try to identify possible issues that could arise (so that I can discuss them with the mentors before the Coding Period starts)
     - *05/14 Wed*: Participated in the "*Welcome 2025 Contributor talk and Q&A*" by the GSoC team
-    - *05/15 Thu*: Kept working on the <ins>CLI prototype</ins><sup>4</sup>
-    - *05/19 Mon*: Tried all day to build and compile brlcad, MOOSE and arbalest on Windows 11, but without any luck (for some reason arbalest cannot execute properly because it does not find `Qt6OpenGLWidgets`). Although, I think that I did spot a bug that can be easily solved: when compiling arbalest, I got the error `rpcndr.h: 'byte': ambiguous symbol` (this is a [known issue with Windows headers](https://developercommunity.visualstudio.com/t/93889)). To fix it, I simply <ins>removed the `using namespace std;` in `Utils.h`, and I then changed all the few instances where this statement was meaningful by manually adding `std::`</ins><sup>1</sup>
+    - *05/15 Thu*: Kept working on the <ins>CLI prototype</ins><sup>?</sup>
+    - *05/19 Mon*: Tried all day to build and compile brlcad, MOOSE and arbalest on Windows 11, but without any luck (for some reason arbalest cannot execute properly because it does not find `Qt6OpenGLWidgets`). Although, I think that I did spot a bug that can be easily solved: when compiling arbalest, I got the error `rpcndr.h: 'byte': ambiguous symbol` (this is a [known issue with Windows headers](https://developercommunity.visualstudio.com/t/93889)). To fix it, I simply <ins>removed the `using namespace std;` in `Utils.h`, and I then changed all the few instances where this statement was meaningful by manually adding `std::`</ins><sup>#59</sup>
     - *05/20 Tue*: A storm caused a problem with my Internet Service Provider in my local area, so I basically didn't have Internet all day... I kept trying to build arbalest though, but with no success unfortunately
-    - *05/22 Thu*: Internet got fixed finally. Also I kept working on the <ins>CLI prototype</ins><sup>4</sup>, particularly exploring how to use the already created `QgConsole` (in qtcad)
-    - *05/23 Fri*: Worked on the <ins>CLI prototype</ins><sup>4</sup>
-    - *05/25 Sun*: Started working on the <ins>new theme creator feature</ins><sup>3</sup>, focusing on how to make it so that themes can be changed at runtime (without closing and reopening the application)
-    - *05/26 Mon*: Kept working on the <ins>new theme creator feature</ins><sup>3</sup>
-    - *05/27 Tue*: Found a way to make it so that <ins>themes can change at runtime without restarting the application</ins><sup>3</sup>. I need to make it sure that it works correctly in all possible cases
-    - *05/29 Thu*: Worked on the <ins>CLI prototype</ins><sup>4</sup>, focusing on the best way to bridge or reuse qtcad’s Qt Widgets without breaching arbalest’s clean and easy-to-scale implementation
+    - *05/22 Thu*: Internet got fixed finally. Also I kept working on the <ins>CLI prototype</ins><sup>?</sup>, particularly exploring how to use the already created `QgConsole` (in qtcad)
+    - *05/23 Fri*: Worked on the <ins>CLI prototype</ins><sup>?</sup>
+    - *05/25 Sun*: Started working on the <ins>new theme creator feature</ins><sup>x</sup>, focusing on how to make it so that themes can be changed at runtime (without closing and reopening the application)
+    - *05/26 Mon*: Kept working on the <ins>new theme creator feature</ins><sup>x</sup>
+    - *05/27 Tue*: Found a way to make it so that <ins>themes can change at runtime without restarting the application</ins><sup>#64</sup>. I need to make it sure that it works correctly in all possible cases
+    - *05/29 Thu*: Worked on the <ins>CLI prototype</ins><sup>?</sup>, focusing on the best way to bridge or reuse qtcad’s Qt Widgets without breaching arbalest’s clean and easy-to-scale implementation
     - *06/01 Sun*: Video chat with BRL-CAD's old and new GSoC contributors and mentors before the *Coding Period* officially begins
 - **Coding Period (1st half)**:
     - Week 1:
-        - *06/02 Mon*: Prepared [PR#59](https://github.com/BRL-CAD/arbalest/pull/59)<sup>1</sup> and [PR#60](https://github.com/BRL-CAD/arbalest/pull/60)<sup>2</sup> that I will do after I can test them on Windows 11. Kept trying to build arbalest on Windows 11
-        - *06/03 Tue*: Worked on <ins>fixing how arbalest themes appear on Linux</ins><sup>3</sup>. Kept trying to build arbalest on Windows 11
-        - *06/04 Wed*: Finally built arbalest on Windows 11! Opened [PR#59](https://github.com/BRL-CAD/arbalest/pull/59)<sup>1</sup>. Tested [PR#60](https://github.com/BRL-CAD/arbalest/pull/60)<sup>2</sup> on Windows 11 
-        - *06/05 Thu*: Participated in the "*Special Q&A session regarding the Coding Period*" by the GSoC team. Opened [PR#60](https://github.com/BRL-CAD/arbalest/pull/60)<sup>2</sup>
-        - *06/06 Fri*: Worked on <ins>standardizing how themes look on Linux and Windows 11</ins><sup>3</sup>
-        - *06/07 Sat*: **[PR#59](https://github.com/BRL-CAD/arbalest/pull/59)<sup>1</sup> and [PR#60](https://github.com/BRL-CAD/arbalest/pull/60)<sup>2</sup> got merged!**
+        - *06/02 Mon*: Prepared [PR#59](https://github.com/BRL-CAD/arbalest/pull/59) and [PR#60](https://github.com/BRL-CAD/arbalest/pull/60) that I will do after I can test them on Windows 11. Kept trying to build arbalest on Windows 11
+        - *06/03 Tue*: Worked on <ins>fixing how arbalest themes appear on Linux</ins><sup>#62</sup>. Kept trying to build arbalest on Windows 11
+        - *06/04 Wed*: Finally built arbalest on Windows 11! Opened [PR#59](https://github.com/BRL-CAD/arbalest/pull/59). Tested [PR#60](https://github.com/BRL-CAD/arbalest/pull/60) on Windows 11 
+        - *06/05 Thu*: Participated in the "*Special Q&A session regarding the Coding Period*" by the GSoC team. Opened [PR#60](https://github.com/BRL-CAD/arbalest/pull/60)
+        - *06/06 Fri*: Worked on <ins>standardizing how themes look on Linux and Windows 11</ins><sup>#62</sup>
+        - *06/07 Sat*: **[PR#59](https://github.com/BRL-CAD/arbalest/pull/59) and [PR#60](https://github.com/BRL-CAD/arbalest/pull/60) got merged!**
     - Week 2:
-        - *06/09 Mon*: Worked on <ins>standardizing how themes look on Linux and Windows 11</ins><sup>3</sup>
-        - *06/11 Wed*: Finished <ins>standardizing how themes look on Linux and Windows 11</ins><sup>3</sup>
-        - *06/12 Thu*: Worked on a few bugs related to <ins>how themes look on Linux and Windows 11</ins><sup>3</sup> (e.g: icons colors, refreshing icons at runtime, refreshing properties at runtime, refreshing viewports background colors at runtime, ...)
-        - *06/13 Fri*: Fully implemented support for <ins>changing themes at runtime</ins><sup>3</sup>!
-        - *06/14 Sat*: Ironed out the new <ins>style and themes</ins><sup>3</sup> and the new feature for <ins>changing themes at runtime</ins><sup>3</sup>, and split the code into multiple PRs
-        - *06/15 Sun*: Opened [PR#61](https://github.com/BRL-CAD/arbalest/pull/61)<sup>3</sup>, [PR#62](https://github.com/BRL-CAD/arbalest/pull/62)<sup>3</sup> and [PR#63](https://github.com/BRL-CAD/arbalest/pull/63)<sup>3</sup>
+        - *06/09 Mon*: Worked on <ins>standardizing how themes look on Linux and Windows 11</ins><sup>#61,#62</sup>
+        - *06/11 Wed*: Finished <ins>standardizing how themes look on Linux and Windows 11</ins><sup>#62,#63</sup>
+        - *06/12 Thu*: Worked on a few bugs related to <ins>how themes look on Linux and Windows 11</ins><sup>#61,#62#,#63,#64</sup> (e.g: icons colors, refreshing icons at runtime, refreshing properties at runtime, refreshing viewports background colors at runtime, ...)
+        - *06/13 Fri*: Fully implemented support for <ins>changing themes at runtime</ins><sup>#64</sup>!
+        - *06/14 Sat*: Ironed out the new <ins>style and themes</ins><sup>#62</sup> and the new feature for <ins>changing themes at runtime</ins><sup>#64</sup>
+        - *06/15 Sun*: Opened [PR#61](https://github.com/BRL-CAD/arbalest/pull/61), [PR#62](https://github.com/BRL-CAD/arbalest/pull/62) and [PR#63](https://github.com/BRL-CAD/arbalest/pull/63)
     - Week 3:
         - ...
     - Week 4:
