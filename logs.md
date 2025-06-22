@@ -53,6 +53,7 @@
         - *06/16 Mon*: Opened [PR#64](https://github.com/BRL-CAD/arbalest/pull/64). **[PR#62](https://github.com/BRL-CAD/arbalest/pull/62) and [PR#63](https://github.com/BRL-CAD/arbalest/pull/63) got merged!**
         - *06/17 Tue*: **[PR#64](https://github.com/BRL-CAD/arbalest/pull/64) got merged!**
         - *06/19 Thu*: Started working again on the <ins>CLI prototype</ins><sup>?</sup>. The first goal is to find the best way to use MOOSE to connect arbalest and `libqtcad`
+        - *06/22 Sun*: Building <ins>MOOSE's module that will act as a C++ layer for `libqtcad`</ins><sup>?</sup>
     - Week 4:
         - ...
     - Week 5:
