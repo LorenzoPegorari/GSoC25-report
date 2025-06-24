@@ -55,7 +55,8 @@
         - *06/19 Thu*: Started working again on the <ins>CLI prototype</ins><sup>?</sup>. The first goal is to find the best way to use MOOSE to connect arbalest and `libqtcad`
         - *06/22 Sun*: Building <ins>MOOSE's module that will act as a C++ layer for `libqtcad`</ins><sup>?</sup>
     - Week 4:
-        - ...
+        - *06/23 Mon*: Kept working on <ins>MOOSE's module that will act as a C++ layer for `libqtcad`</ins><sup>?</sup>
+        - *06/24 Tue*: Working on the <ins>new CLI, focusing especially on the `QWidget` side of the CLI</ins><sup>?</sup>
     - Week 5:
         - ...
     - Week 6:
