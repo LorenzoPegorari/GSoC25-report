@@ -57,6 +57,7 @@
     - Week 4:
         - *06/23 Mon*: Kept working on <ins>MOOSE's module that will act as a C++ layer for `libqtcad`</ins><sup>?</sup>
         - *06/24 Tue*: Working on the <ins>new CLI, focusing especially on the `QWidget` side of the CLI</ins><sup>?</sup>
+        - *06/26 Thu*: Worked on <ins>MOOSE's module that will act as a C++ layer for `libqtcad`</ins><sup>?</sup> and <ins>directly on the `libqtcad` library</ins><sup>?</sup>
     - Week 5:
         - ...
     - Week 6:
