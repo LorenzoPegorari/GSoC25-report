@@ -53,24 +53,22 @@
     - Week 3:
         - *06/16 Mon*: Opened [PR#64](https://github.com/BRL-CAD/arbalest/pull/64). **[PR#62](https://github.com/BRL-CAD/arbalest/pull/62) and [PR#63](https://github.com/BRL-CAD/arbalest/pull/63) got merged!**
         - *06/17 Tue*: **[PR#64](https://github.com/BRL-CAD/arbalest/pull/64) got merged!**
-        - *06/19 Thu*: Started working again on the <ins>CLI prototype</ins><sup>?</sup>. The first goal is to find the best way to use MOOSE to connect arbalest and `libqtcad`
-        - *06/22 Sun*: Building <ins>MOOSE's module that will act as a C++ layer for `libqtcad`</ins><sup>?</sup>
+        - *06/19 Thu*: Started working again on the <ins>CLI prototype</ins><sup>x</sup>. The first goal is to find the best way to use MOOSE to connect arbalest and `libqtcad`
+        - *06/22 Sun*: Tried building a <ins>MOOSE module that will act as a C++ layer for `libqtcad`</ins><sup>x</sup>
     - Week 4:
-        - *06/23 Mon*: Kept working on <ins>MOOSE's module that will act as a C++ layer for `libqtcad`</ins><sup>?</sup>
-        - *06/24 Tue*: Working on the <ins>new CLI, focusing especially on the `QWidget` side of the CLI</ins><sup>?</sup>
-        - *06/26 Thu*: Worked on <ins>MOOSE's module that will act as a C++ layer for `libqtcad`</ins><sup>?</sup> and <ins>directly on the `libqtcad` library</ins><sup>?</sup>
-        - *06/28 Sat*: Worked on <ins>on the `libqtcad` library, focusing on understanding if it is possible to use its contents for arbalest</ins><sup>?</sup>
+        - *06/23 Mon*: Kept exploring the best way to have a <ins>MOOSE module that will act as a C++ layer for `libqtcad`</ins><sup>x</sup>
+        - *06/24 Tue*: Worked on the <ins>new CLI, focusing especially on the `QWidget` side of the CLI</ins><sup>?</sup>
+        - *06/26 Thu*: Studied how `libqtcad` is implemented as deeply as possible, in order to understand how it can be connect with MOOSE and arbalest
+        - *06/28 Sat*: Kept studing how the `libqtcad` library works, focusing on understanding if it is possible to use its contents for arbalest
     - Week 5:
-        - *06/30 Mon*: Just testing different ways to connect everything
-        - *07/01 Tue*: Kept testing
-        - *07/03 Thu*: Proposed a definitive plan for how to insert a functioning console inside of arbalest (through MOOSE and `libqtcad`)
+        - *06/30 Mon*: After more testing, and after confronting my mentors, I came to the conclusion that there is no way to connect the `libqtcad` library to MOOSE. This is because there is no way to connect them while preserving the main idea behind MOOSE, that is to be "a thin layer on top of BRL-CAD's core libraries". Maybe directly accessing the `libqtcad` library from arbalest could be a good temporary solution?
+        - *07/01 Tue*: Explored a way to <ins>improve the current `ObjectTree` class</ins><sup>?</sup>, which handles the creation of a tree data structure that represents the opened database. The `ObjectTree` needs to be improved to support the GED commands that the new CLI will execute
+        - *07/03 Thu*: Finalized a <ins>plan for how to insert a functioning CLI inside of arbalest, that can handle 99% of the GED commands</ins><sup>?</sup> (MOOSE will handle the execution of commands, while the `QgConsole` defined inside `libqtcad` will be used to create the actual `QWidget` console)
+        - *07/04 Fri*: Submitted my plan to the mentors and <ins>started working on it</ins><sup>?</sup>
+        - *07/05 Sat*: Discovered, with the help of my mentors, a problem regarding how "in-memory databases" are handled by `libged` (some GED commands do not work with "in-memory databases" yet, as they are a recent addition). In the mean time, I worked on <ins>implementing the `QgConsole` (defined inside `libqtcad`) into arbalest, and got it to work</ins><sup>x</sup>
     - Week 6:
-        - ...
-    - *Midterm evaluation*:
-        - ...
 - **Coding Period (2nd half)**:
     - Week 7:
-        - ...
     - Week 8:
         - ...
     - Week 9:
