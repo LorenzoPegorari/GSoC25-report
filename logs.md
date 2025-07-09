@@ -67,6 +67,8 @@
         - *07/04 Fri*: Submitted my plan to the mentors and <ins>started working on it</ins><sup>?</sup>
         - *07/05 Sat*: Discovered, with the help of my mentors, a problem regarding how "in-memory databases" are handled by `libged` (some GED commands do not work with "in-memory databases" yet, as they are a recent addition). In the mean time, I worked on <ins>implementing the `QgConsole` (defined inside `libqtcad`) into arbalest, and got it to work</ins><sup>x</sup>
     - Week 6:
+        - *07/07 Mon*: Worked on <ins>improving the current `ObjectTree` class</ins><sup>?</sup>. Finding a lot of issues to fix. The main one is having a way of knowing which objects in the database were added/modified/killed by a CLI command, without having to rewrite a GED parser
+        - *07/08 Tue*: Showed a prototype of the CLI to my mentors, and discussed with them how to tackle the many issues that come with supporting all GED commands
 - **Coding Period (2nd half)**:
     - Week 7:
     - Week 8:
