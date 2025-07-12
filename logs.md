@@ -69,6 +69,12 @@
     - Week 6:
         - *07/07 Mon*: Worked on <ins>improving the current `ObjectTree` class</ins><sup>?</sup>. Finding a lot of issues to fix. The main one is having a way of knowing which objects in the database were added/modified/killed by a CLI command, without having to rewrite a GED parser
         - *07/08 Tue*: Showed a prototype of the CLI to my mentors, and discussed with them how to tackle the many issues that come with supporting all GED commands
+        - *07/09 Wed*: In order to know which objects in the database were added/modified/killed by a CLI command, MOOSE should be expanded so that it can support the usage of `dbi_changed_clbks` and `dbi_update_nref_clbks`</ins><sup>?</sup> (these are `librt` method that call a specified function when an object in the database changes)
+        - *07/10 Thu*: Kept working on <ins>improving the current `ObjectTree` class</ins><sup>?</sup>, so that it can support many situations that are now buggy (eg: killed objects inside a database, combinations that reference items that do not exists)
+        - *07/11 Fri*: Kept working on <ins>improving the current `ObjectTree` class</ins><sup>?</sup>. I have modified the `ObjectTree` so that now, instead of using a bunch of hashmaps and sets to represent all the items of the tree, it uses the 2 classes `ObjectTreeItem` (used for items in the tree) and `ObjectTreeItemData` (used for objects in the database). Now the `ObjectTree` is clearer and more efficient
+        - *07/12 Sat*: Kept working on <ins>improving the current `ObjectTree` class</ins><sup>?</sup>. I have increased the amount of informations that the `ObjectTree` can store about the database objects, so that it can support killed objects and combinations that reference non-existent object in the database (and, maybe in the future, support more advanced features)
+    - *Midterm evaluation*:
+        - ...
 - **Coding Period (2nd half)**:
     - Week 7:
     - Week 8:
