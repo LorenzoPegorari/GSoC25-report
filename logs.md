@@ -69,14 +69,19 @@
     - Week 6:
         - *07/07 Mon*: Worked on <ins>improving the current `ObjectTree` class</ins><sup>?</sup>. Finding a lot of issues to fix. The main one is having a way of knowing which objects in the database were added/modified/killed by a CLI command, without having to rewrite a GED parser
         - *07/08 Tue*: Showed a prototype of the CLI to my mentors, and discussed with them how to tackle the many issues that come with supporting all GED commands
-        - *07/09 Wed*: In order to know which objects in the database were added/modified/killed by a CLI command, MOOSE should be expanded so that it can support the usage of `dbi_changed_clbks` and `dbi_update_nref_clbks`</ins><sup>?</sup> (these are `librt` method that call a specified function when an object in the database changes)
-        - *07/10 Thu*: Kept working on <ins>improving the current `ObjectTree` class</ins><sup>?</sup>, so that it can support many situations that are now buggy (eg: killed objects inside a database, combinations that reference items that do not exists)
-        - *07/11 Fri*: Kept working on <ins>improving the current `ObjectTree` class</ins><sup>?</sup>. I have modified the `ObjectTree` so that now, instead of using a bunch of hashmaps and sets to represent all the items of the tree, it uses the 2 classes `ObjectTreeItem` (used for items in the tree) and `ObjectTreeItemData` (used for objects in the database). Now the `ObjectTree` is clearer and more efficient
-        - *07/12 Sat*: Kept working on <ins>improving the current `ObjectTree` class</ins><sup>?</sup>. I have increased the amount of informations that the `ObjectTree` can store about the database objects, so that it can support killed objects and combinations that reference non-existent object in the database (and, maybe in the future, support more advanced features)
+        - *07/09 Wed*: In order to know which objects in the database were added/modified/killed by a CLI command, <ins>MOOSE should be expanded so that it can support the usage of `dbi_changed_clbks` and `dbi_update_nref_clbks`</ins><sup>?</sup> (these are `librt` method that call a specified function when an object in the database changes)
+        - *07/10 Thu*: Kept working on <ins>improving the current `ObjectTree` class, so that it can support many situations that are now buggy</ins><sup>?</sup> (eg: killed objects inside a database, combinations that reference items that do not exists)
+        - *07/11 Fri*: <ins>Modified the `ObjectTree` so that now, instead of using a bunch of hashmaps and sets to represent all the items of the tree, it uses the 2 classes `ObjectTreeItem` (used for items in the tree) and `ObjectTreeItemData` (used for objects in the database)</ins><sup>?</sup>. Now the `ObjectTree` is clearer and more efficient
+        - *07/12 Sat*: <ins>Increased the amount of informations that the `ObjectTree` can store about the database objects, so that it can support killed objects and combinations that reference non-existent object in the database</ins><sup>?</sup> (and, maybe in the future, support more advanced features)
     - *Midterm evaluation*:
         - ...
 - **Coding Period (2nd half)**:
     - Week 7:
+        - *07/14 Mon*: <ins>Improved the building time of the `ObjectTree` significantly</ins><sup>?</sup>. [My calculations](https://docs.google.com/spreadsheets/d/1iniV33pwGcnrZ0X1PnutxBAxStYU5JF5IMBf1cFWUAc/edit?usp=sharing), from a pool of 39 generic databases, show that the new building time decreased by around 66.4% (by 24.3% in the worst case, and by 97.8% in the best case)
+        - *07/15 Tue*: <ins>Created a first connection from the new `ObjectTree` to the actual GUI widgets</ins><sup>?</sup>
+        - *07/16 Wed*: <ins>Added a method to the new `ObjectTree` that can remove items from the tree</ins><sup>?</sup>
+        - *07/17 Thu*: <ins>Fixed a few bugs related to the new `ObjectTree`</ins><sup>?</sup>
+        - *07/18 Fri*: ...
     - Week 8:
         - ...
     - Week 9:
