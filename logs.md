@@ -62,30 +62,39 @@
         - *06/28 Sat*: Kept studing how the `libqtcad` library works, focusing on understanding if it is possible to use its contents for arbalest
     - Week 5:
         - *06/30 Mon*: After more testing, and after confronting my mentors, I came to the conclusion that there is no way to connect the `libqtcad` library to MOOSE. This is because there is no way to connect them while preserving the main idea behind MOOSE, that is to be "a thin layer on top of BRL-CAD's core libraries". Maybe directly accessing the `libqtcad` library from arbalest could be a good temporary solution?
-        - *07/01 Tue*: Explored a way to <ins>improve the current `ObjectTree` class</ins><sup>?</sup>, which handles the creation of a tree data structure that represents the opened database. The `ObjectTree` needs to be improved to support the GED commands that the new CLI will execute
-        - *07/03 Thu*: Finalized a <ins>plan for how to insert a functioning CLI inside of arbalest, that can handle 99% of the GED commands</ins><sup>?</sup> (MOOSE will handle the execution of commands, while the `QgConsole` defined inside `libqtcad` will be used to create the actual `QWidget` console)
-        - *07/04 Fri*: Submitted my plan to the mentors and <ins>started working on it</ins><sup>?</sup>
+        - *07/01 Tue*: Explored a way to <ins>improve the current `ObjectTree` class</ins><sup>#66</sup>, which handles the creation of a tree data structure that represents the opened database. The `ObjectTree` needs to be improved to support the GED commands that the new CLI will execute
+        - *07/03 Thu*: Finalized a <ins>plan for how to insert a functioning CLI inside of arbalest, that can handle 99% of the GED commands</ins><sup>#66</sup> (MOOSE will handle the execution of commands, while the `QgConsole` defined inside `libqtcad` will be used to create the actual `QWidget` console)
+        - *07/04 Fri*: Submitted my plan to the mentors and <ins>started working on it</ins><sup>#66</sup>
         - *07/05 Sat*: Discovered, with the help of my mentors, a problem regarding how "in-memory databases" are handled by `libged` (some GED commands do not work with "in-memory databases" yet, as they are a recent addition). In the mean time, I worked on <ins>implementing the `QgConsole` (defined inside `libqtcad`) into arbalest, and got it to work</ins><sup>x</sup>
     - Week 6:
-        - *07/07 Mon*: Worked on <ins>improving the current `ObjectTree` class</ins><sup>?</sup>. Finding a lot of issues to fix. The main one is having a way of knowing which objects in the database were added/modified/killed by a CLI command, without having to rewrite a GED parser
+        - *07/07 Mon*: Worked on <ins>improving the current `ObjectTree` class</ins><sup>#66</sup>. Finding a lot of issues to fix. The main one is having a way of knowing which objects in the database were added/modified/killed by a CLI command, without having to rewrite a GED parser
         - *07/08 Tue*: Showed a prototype of the CLI to my mentors, and discussed with them how to tackle the many issues that come with supporting all GED commands
-        - *07/09 Wed*: In order to know which objects in the database were added/modified/killed by a CLI command, <ins>MOOSE should be expanded so that it can support the usage of `dbi_changed_clbks` and `dbi_update_nref_clbks`</ins><sup>?</sup> (these are `librt` method that call a specified function when an object in the database changes)
-        - *07/10 Thu*: Kept working on <ins>improving the current `ObjectTree` class, so that it can support many situations that are now buggy</ins><sup>?</sup> (eg: killed objects inside a database, combinations that reference items that do not exists)
-        - *07/11 Fri*: <ins>Modified the `ObjectTree` so that now, instead of using a bunch of hashmaps and sets to represent all the items of the tree, it uses the 2 classes `ObjectTreeItem` (used for items in the tree) and `ObjectTreeItemData` (used for objects in the database)</ins><sup>?</sup>. Now the `ObjectTree` is clearer and more efficient
-        - *07/12 Sat*: <ins>Increased the amount of informations that the `ObjectTree` can store about the database objects, so that it can support killed objects and combinations that reference non-existent object in the database</ins><sup>?</sup> (and, maybe in the future, support more advanced features)
+        - *07/09 Wed*: In order to know which objects in the database were added/modified/killed by a CLI command, MOOSE should be expanded so that it can support the usage of `dbi_changed_clbks` and `dbi_update_nref_clbks` (these are `librt` method that call a specified function when an object in the database changes)
+        - *07/10 Thu*: Kept working on <ins>improving the current `ObjectTree` class, so that it can support many situations that are now buggy</ins><sup>#66</sup> (eg: killed objects inside a database, combinations that reference items that do not exists)
+        - *07/11 Fri*: <ins>Modified the `ObjectTree` so that now, instead of using a bunch of hashmaps and sets to represent all the items of the tree, it uses the 2 classes `ObjectTreeItem` (used for items in the tree) and `ObjectTreeItemData` (used for objects in the database)</ins><sup>#66</sup>. Now the `ObjectTree` is clearer and more efficient
+        - *07/12 Sat*: <ins>Increased the amount of informations that the `ObjectTree` can store about the database objects, so that it can support killed objects and combinations that reference non-existent object in the database</ins><sup>#66</sup> (and, maybe in the future, support more advanced features)
     - *Midterm evaluation*:
         - ...
 - **Coding Period (2nd half)**:
     - Week 7:
-        - *07/14 Mon*: <ins>Improved the building time of the `ObjectTree` significantly</ins><sup>?</sup>. [My calculations](https://docs.google.com/spreadsheets/d/1iniV33pwGcnrZ0X1PnutxBAxStYU5JF5IMBf1cFWUAc/edit?usp=sharing), from a pool of 39 generic databases, show that the new building time decreased by around 66.4% (by 24.3% in the worst case, and by 97.8% in the best case)
-        - *07/15 Tue*: <ins>Created a first connection from the new `ObjectTree` to the actual GUI widgets</ins><sup>?</sup>
-        - *07/16 Wed*: <ins>Added a method to the new `ObjectTree` that can remove items from the tree</ins><sup>?</sup>
-        - *07/17 Thu*: <ins>Fixed a few bugs related to the new `ObjectTree`</ins><sup>?</sup>
-        - *07/18 Fri*: ...
+        - *07/14 Mon*: <ins>Improved the building time of the `ObjectTree` significantly</ins><sup>#66</sup>. [My calculations](https://docs.google.com/spreadsheets/d/1iniV33pwGcnrZ0X1PnutxBAxStYU5JF5IMBf1cFWUAc/edit?usp=sharing), from a pool of 39 generic databases, show that the new building time decreased by around 66.4% (by 24.3% in the worst case, and by 97.8% in the best case)
+        - *07/15 Tue*: <ins>Created a first connection from the new `ObjectTree` to the actual GUI widgets</ins><sup>#66</sup>
+        - *07/16 Wed*: Opened [PR#66](https://github.com/BRL-CAD/arbalest/pull/66), showing how the new `ObjectTree[ builds, how it works, and how it connects to the GUI (used the `ObjectTreeWidget` as an example)
+        - *07/17 Thu*: <ins>Fixed a few bugs related to the new `ObjectTree`</ins><sup>#66</sup>, and pushed these changes to the [PR#66](https://github.com/BRL-CAD/arbalest/pull/66)
     - Week 8:
-        - ...
+        - *07/21 Mon*: <ins>Cloned the qged console, and started making some modifications to adapt it to arbalest and MOOSE</ins><sup>#67</sup>
+        - *07/22 Tue*: <ins>Kept working on the console `QWidget`</ins><sup>#67</sup>
+        - *07/23 Wed*: <ins>Made the CLI able to execute commands using the correct `Database` (the one of the currently active `Document`)</ins><sup>#67</sup>
+        - *07/24 Thu*: <ins>Worked on how the console and completer look (`QStyleSheet`, events, and how the results of commands are printed in the console)</ins><sup>#67</sup>
+        - *07/25 Fri*: <ins>Finished working on the new CLI (ironed out the last things)</ins><sup>#67</sup>
+        - *07/26 Sat*: <ins>Tried working on implementing `ged_cmd_completions()` and `ged_geom_completions()` into `CommandString`, but my solution was not good enough, so my mentors took care of it</ins><sup>x</sup>
     - Week 9:
-        - ...
+        - *07/28 Mon*: <ins>Finished working on the new CLI (made it so that the command/objects completer works and ironed out the last things)</ins><sup>#67</sup>
+        - *07/29 Tue*: Opened [PR#67](https://github.com/BRL-CAD/arbalest/pull/67), containing a `QWidget` for a CLI. The console is a simplified clone of `QgConsole`, the console defined in `libqtcad` and used by `qged`. It uses MOOSE instead of calling brlcad libraries directly, and it supports command completion, geometry object names completion, and obviously the execution of commands  
+        - *07/30 Wed*: Opened [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3), containing a new method for MOOSE's `CommandString` module, that enables `Parse` to give more information regarding the execution of a GED command. Added license, copyright notice and support for multi inputs commands to [PR#67](https://github.com/BRL-CAD/arbalest/pull/67)
+        - *07/31 Thu*: Reworked [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3), following the directions of my mentors
+        - *08/01 Fri*: ...
+        - *08/02 Sat*: ...
     - Week 10:
         - ...
     - Week 11:
