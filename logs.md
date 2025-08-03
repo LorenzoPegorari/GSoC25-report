@@ -81,6 +81,7 @@
         - *07/15 Tue*: <ins>Created a first connection from the new `ObjectTree` to the actual GUI widgets</ins><sup>#66</sup>
         - *07/16 Wed*: Opened [PR#66](https://github.com/BRL-CAD/arbalest/pull/66), showing how the new `ObjectTree[ builds, how it works, and how it connects to the GUI (used the `ObjectTreeWidget` as an example)
         - *07/17 Thu*: <ins>Fixed a few bugs related to the new `ObjectTree`</ins><sup>#66</sup>, and pushed these changes to the [PR#66](https://github.com/BRL-CAD/arbalest/pull/66)
+        - *07/20 Sun*: My mentors created a way for MOOSE to signal database changes. I'm working on using these methods to check when the new `ObjectTree` gets changed, and update the GUI accordingly
     - Week 8:
         - *07/21 Mon*: <ins>Cloned the qged console, and started making some modifications to adapt it to arbalest and MOOSE</ins><sup>#67</sup>
         - *07/22 Tue*: <ins>Kept working on the console `QWidget`</ins><sup>#67</sup>
@@ -93,8 +94,8 @@
         - *07/29 Tue*: Opened [PR#67](https://github.com/BRL-CAD/arbalest/pull/67), containing a `QWidget` for a CLI. The console is a simplified clone of `QgConsole`, the console defined in `libqtcad` and used by `qged`. It uses MOOSE instead of calling brlcad libraries directly, and it supports command completion, geometry object names completion, and obviously the execution of commands  
         - *07/30 Wed*: Opened [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3), containing a new method for MOOSE's `CommandString` module, that enables `Parse` to give more information regarding the execution of a GED command. Added license, copyright notice and support for multi inputs commands to [PR#67](https://github.com/BRL-CAD/arbalest/pull/67)
         - *07/31 Thu*: Reworked [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3), following the directions of my mentors
-        - *08/01 Fri*: ...
-        - *08/02 Sat*: ...
+        - *08/01 Fri*: Went back on implementing the database change callbacks, in order to update the GUI when the database gets changed. 
+        - *08/02 Sat*: Kept working on implementing the database change callbacks. Also had a discussion with my mentors regarding [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3)
     - Week 10:
         - ...
     - Week 11:
