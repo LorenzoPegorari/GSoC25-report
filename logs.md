@@ -96,8 +96,10 @@
         - *07/31 Thu*: Reworked [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3), following the directions of my mentors
         - *08/01 Fri*: Went back on implementing the database change callbacks, in order to update the GUI when the database gets changed. 
         - *08/02 Sat*: Kept working on implementing the database change callbacks. Also had a discussion with my mentors regarding [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3)
+        - *08/03 Sun*: Made some small fixes to [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3). Finalized [PR#66](https://github.com/BRL-CAD/arbalest/pull/66) by moving the entire logic to the new `ObjectTree`
     - Week 10:
-        - ...
+        - *08/04 Mon*: Added support to commands that request to close the opened document to the console in [PR#67](https://github.com/BRL-CAD/arbalest/pull/67)
+        - *08/05 Tue*: Added support for non-existent objects to `ObjectTreeWidget`
     - Week 11:
         - ...
     - Week 12:
