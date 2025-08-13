@@ -1,4 +1,8 @@
-# GSoC 2025 Daily Logs
+<h1 align="center">Google Summer of Code 2025 - Daily logs</h1>
+
+<img align="center" src="assets/imgs/logos/GSoC25-logo.png" alt="GSoC_BRLCAD_arbalest_logo">
+
+---
 
 > **Tips on how to read the logs**:
 >
@@ -114,30 +118,30 @@
 **New Arbalest style and themes on Linux (Ubuntu 24.04.1 LTS)** *with theme change at runtime*:
 
 <video controls>
-  <source src="assets/arbalest-linux-new.mp4" type="video/mp4">
+  <source src="assets/videos/arbalest-linux-new.mp4" type="video/mp4">
 </video>
 
 **Old Arbalest style and themes on Linux (Ubuntu 24.04.1 LTS)**
 
 <video controls>
-  <source src="assets/arbalest-linux-old.mp4" type="video/mp4">
+  <source src="assets/videos/arbalest-linux-old.mp4" type="video/mp4">
 </video>
 
 ### Images
 
 **New Arbalest style and light theme on Windows (Windows 11)** *with theme change at runtime*:
 
-![](assets/arbalest-windows-light-new.png)
+![](assets/imgs/arbalest-windows-light-new.png)
 
 **Old Arbalest style and light theme on Windows (Windows 11)**:
 
-![](assets/arbalest-windows-light-old.png)
+![](assets/imgs/arbalest-windows-light-old.png)
 
 **New Arbalest style and dark theme on Windows (Windows 11)** *with theme change at runtime*:
 
-![](assets/arbalest-windows-black-new.png)
+![](assets/imgs/arbalest-windows-black-new.png)
 
 **Old Arbalest style and dark theme on Windows (Windows 11)**:
 
-![](assets/arbalest-windows-black-old.png)
+![](assets/imgs/arbalest-windows-black-old.png)
 

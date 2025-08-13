@@ -95,3 +95,12 @@
     background-color: rgba(0, 256, 0, 0.05);
     color: inherit;
 }
+
+/* Hr */
+.markdown-body hr {
+    height: .25em;
+    margin: 1.5rem 0;
+    border: 0;
+    padding: 0;
+    background-color: #3d444d;
+}
