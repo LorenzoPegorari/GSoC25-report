@@ -22,7 +22,7 @@ a {
 }
 
 .light-mode a {
-    color: #2575a7;
+    color: #1963C3;
 }
 
 .dark-mode a {
@@ -36,7 +36,7 @@ a {
     padding-bottom: 64px;
     font-weight: 600;
     font-size: 2.5em;
-    border-bottom: 1px solid #eaecef;
+    border-bottom: 1px solid #3d444db3;
     text-align: center;
 
     display: flex;
@@ -93,17 +93,16 @@ body.dark-mode #mode-button {
 
 .container {
     max-width: 1012px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 32px auto;
 }
 
 .footer {
     max-width: 1368px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 32px;
+    padding-top: 16px;
     font-weight: 400;
-    font-size: 0.9em;
-    border-top: 1px solid #eaecef;
+    font-size: 0.95rem;
+    border-top: 1px solid #3d444db3;
     text-align: right;
 }
