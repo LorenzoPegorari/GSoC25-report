@@ -19,7 +19,7 @@
     <meta name="title" content="{{ default: site.title | default: site.github.project_title }}">
     <meta name="description" content="{{ default: site.description | default: site.github.project_tagline }}">
 
-    <link rel="stylesheet" href="{{ base_path }}/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/markdown.css">
     <link rel="stylesheet" href="{{ base_path }}/assets/css/style.css">
 
     <title>{{ default: site.title | default: site.github.project_title }}</title>
@@ -28,7 +28,7 @@
 
 <body>
 
-    <div class="header markdown-body">
+    <div class="header">
         <div class="top">
             <a href="{{ default: site.url }}" id="home-button"></a>
             <button id="mode-button" onclick="changeMode()"></button>
@@ -41,13 +41,14 @@
         Lorenzo Pegorari
     </div>
 
-    <div class="markdown-body container-lg px-3 my-5">
+    <div class="markdown-body container">
 
         {{ content }}
 
-        <div class="footer pt-3 mt-5">
-            <a href="{{ default: site.github.repository_url }}">GitHub repo</a> | <a href="{{ default: site.github.owner_url }}">Lorenzo Pegorari</a>
-        </div>
+    </div>
+
+    <div class="footer">
+        <a href="{{ default: site.github.repository_url }}">GitHub repo</a> | <a href="{{ default: site.github.owner_url }}">Lorenzo Pegorari</a>
     </div>
     
     <script type="text/javascript" src="{{ base_path }}/assets/js/script.js"></script>
