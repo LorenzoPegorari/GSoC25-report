@@ -12,12 +12,16 @@
 
 ## PRs
 
-- [PR#59](https://github.com/BRL-CAD/arbalest/pull/59) = Removed using directives in header files
-- [PR#60](https://github.com/BRL-CAD/arbalest/pull/60) = Reverted the hacks done to create a personalized title bar and restored the "standard Qt" look for the title bar
-- [PR#61](https://github.com/BRL-CAD/arbalest/pull/61) = Removed some superfluous `MainWindow`'s methods and icon memory waste
-- [PR#62](https://github.com/BRL-CAD/arbalest/pull/62) = Standardized the `QStyleSheet` "arbalest_simple.qss" to appear the same way on Windows (Windows 11) and Linux (Ubuntu 24.04.1 LTS)
-- [PR#63](https://github.com/BRL-CAD/arbalest/pull/63) = Added a dedicated method that sets UI elements icons and added more theme variables for icon colors
-- [PR#64](https://github.com/BRL-CAD/arbalest/pull/64) = Added support for changing themes at runtime (without having to reopen arbalest)
+- arbalest/[PR#59](https://github.com/BRL-CAD/arbalest/pull/59) = Removed using directives in header files
+- arbalest/[PR#60](https://github.com/BRL-CAD/arbalest/pull/60) = Reverted the hacks done to create a personalized title bar and restored the "standard Qt" look for the title bar
+- arbalest/[PR#61](https://github.com/BRL-CAD/arbalest/pull/61) = Removed some superfluous `MainWindow`'s methods and icon memory waste
+- arbalest/[PR#62](https://github.com/BRL-CAD/arbalest/pull/62) = Standardized the `QStyleSheet` "arbalest_simple.qss" to appear the same way on Windows (Windows 11) and Linux (Ubuntu 24.04.1 LTS)
+- arbalest/[PR#63](https://github.com/BRL-CAD/arbalest/pull/63) = Added a dedicated method that sets UI elements icons and added more theme variables for icon colors
+- arbalest/[PR#64](https://github.com/BRL-CAD/arbalest/pull/64) = Added support for changing themes at runtime (without having to reopen arbalest)
+- arbalest/[PR#66](https://github.com/BRL-CAD/arbalest/pull/66) = New `ObjectTree`
+- arbalest/[PR#67](https://github.com/BRL-CAD/arbalest/pull/67) = New Console `QWidget`
+- MOOSE/[PR#3](https://github.com/BRL-CAD/MOOSE/pull/3) = Modified `Parse()` method so that it returns additional informations
+- MOOSE/[PR#5](https://github.com/BRL-CAD/MOOSE/pull/5) = Changed callbacks argument from `Database::Object` to `const char*` ("objectName")
 
 ## Logs
 
