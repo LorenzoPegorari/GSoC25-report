@@ -46,21 +46,25 @@
 }
 
 .markdown-body h3 {
+    padding-bottom: 0.225em;
     font-weight: 600;
     font-size: 1.25em;
 }
 
 .markdown-body h4 {
+    padding-bottom: 0.2em;
     font-weight: 600;
     font-size: 1em;
 }
 
 .markdown-body h5 {
+    padding-bottom: 0.175em;
     font-weight: 600;
     font-size: .925em;
 }
 
 .markdown-body h6 {
+    padding-bottom: 0.15em;
     font-weight: 600;
     font-size: .875em;
 }
