@@ -34,9 +34,9 @@
             <button id="mode-button" onclick="changeMode()"></button>
         </div>
         {% if page.path == "README.md" %}
-            Google Summer of Code 2025<br>
+            {{ site.header }}<br>
         {% else %}
-            <a href="{{ base_path }}">Google Summer of Code 2025</a>
+            <a href="{{ base_path }}">{{ site.header }}</a>
         {% endif %}
         Lorenzo Pegorari
     </div>
