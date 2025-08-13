@@ -1,0 +1,10 @@
+# Jekyll template created by LorenzoPegorari
+# The "academicpages" theme was used as a reference (https://github.com/academicpages/academicpages.github.io)
+
+# Basic site settings
+lang        : "en-US"
+title       : "GSoC25-report"
+author      : "Lorenzo Pegorari"
+description : "Google Summer of Code 2025 report & daily logs of my proposed project for the organization BRL-CAD"
+url         : https://lorenzopegorari.github.io  # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+baseurl     : "/GSoC25-report"  # the subpath of your site, e.g. "/blog"
