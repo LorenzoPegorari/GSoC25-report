@@ -30,7 +30,7 @@
 
     <div class="header">
         <div class="top">
-            <a href="{{ default: site.url }}" id="home-button"></a>
+            <a href="{{ site.url }}" id="home-button"></a>
             <button id="mode-button" onclick="changeMode()"></button>
         </div>
         {% if page.path == "README.md" %}
@@ -48,7 +48,7 @@
     </div>
 
     <div class="footer">
-        <a href="{{ default: site.github.repository_url }}">GitHub repo</a> | <a href="{{ default: site.github.owner_url }}">Lorenzo Pegorari</a>
+        <a href="{{ site.github.repository_url }}">GitHub repo</a> | <a href="{{ site.github.owner_url }}">Lorenzo Pegorari</a>
     </div>
     
     <script type="text/javascript" src="{{ base_path }}/assets/js/script.js"></script>

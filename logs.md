@@ -1,6 +1,6 @@
 <h1 align="center">Google Summer of Code 2025 - Daily logs</h1>
 
-<img align="center" src="assets/imgs/logos/GSoC25-logo.png" alt="GSoC_BRLCAD_arbalest_logo">
+<img align="center" src="assets/imgs/logos/logos.png" alt="GSoC_BRLCAD_arbalest_logo">
 
 ---
 
