@@ -31,7 +31,7 @@
     margin-bottom: 1rem;
     font-weight: 600;
     line-height: 1.25;
-    border-bottom: 1px solid #3d444db3;
+    border-bottom: 1px solid #3d444d66;
 }
 
 .markdown-body h1 {
@@ -102,5 +102,5 @@
     margin: 1.5rem 0;
     border: 0;
     padding: 0;
-    background-color: #3d444d;
+    background-color: #3d444d66;
 }
