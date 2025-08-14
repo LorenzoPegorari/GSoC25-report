@@ -53,7 +53,7 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: end;
+    align-items: center;
 }
 
 #home-button, #mode-button {
@@ -110,4 +110,23 @@ body.dark-mode #mode-button {
     font-size: 0.95rem;
     border-top: 1px solid #3d444d66;
     text-align: right;
+}
+
+/* Queries */
+@media screen and (max-width: 512px) {
+    .header {
+        font-size: 1.8em;
+    }
+
+    .markdown-body h1 {
+        font-size: 1.5em;
+    }
+
+    .markdown-body h2 {
+        font-size: 1.3em;
+    }
+
+    .markdown-body h3 {
+        font-size: 1.15em;
+    }
 }
