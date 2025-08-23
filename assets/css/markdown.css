@@ -118,12 +118,12 @@
 
 .markdown-body table tr {
     background-color: transparent;
-    border-top: 1px solid #3d444db3;
+    border-top: 1px solid #3d444d66;
 }
 
 .markdown-body table th, .markdown-body table td {
     padding: 6px 13px;
-    border: 1px solid #3d444d;
+    border: 1px solid #3d444d66;
 }
 
 .markdown-body table th {
