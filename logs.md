@@ -24,6 +24,10 @@
 - [PR#64](https://github.com/BRL-CAD/arbalest/pull/64) = Added support for changing themes at runtime (without having to close and reopen the application)
 - [PR#66](https://github.com/BRL-CAD/arbalest/pull/66) = Completely redesigned the `ObjectTree` class to better reflect how a ".g" database is structured (in order to handle better handle borderline situations) and to greatly improve building time speed (more info [here](https://docs.google.com/spreadsheets/d/1iniV33pwGcnrZ0X1PnutxBAxStYU5JF5IMBf1cFWUAc/edit?usp=sharing))
 - [PR#67](https://github.com/BRL-CAD/arbalest/pull/67) = New console `QWidget` (based on *libqtcad*'s `QgConsole`), that supports the execution of GED commands, command completion, object names completion and command history
+- [PR#68](https://github.com/BRL-CAD/arbalest/pull/68) = Added support to handle non-existent objects in the `ObjectTreeWidget`
+- [PR#69](https://github.com/BRL-CAD/arbalest/pull/69) = Created the method `updateObjectTree()`, that allows the `ObjectTree` to update itself based on changes made to its `ObjectTreeItem`s and `ObjectTreeItemData`s. This method will be called after the execution of a `Console` command that modifies the database (that triggers the registered `ChangeSignalHandler`)
+- [PR#70](https://github.com/BRL-CAD/arbalest/pull/70) = Adjusted `ObjectTreeWidget` and `Properties` in order to show the correct object properties and the correct `QTreeWidgetItem`s after `updateObjectTree()` is called
+- [PR#71](https://github.com/BRL-CAD/arbalest/pull/71) = Added support for *MOOSE*'s `ChangeType::References`, in order to call `updateObjectTree()` only when something in the database changed
 
 ### [MOOSE](https://github.com/BRL-CAD/MOOSE)
 
@@ -95,7 +99,7 @@
         - *07/15 Tue*: <ins>Created a first connection from the new `ObjectTree` to the actual GUI widgets</ins><sup>#66</sup>
         - *07/16 Wed*: Opened [PR#66](https://github.com/BRL-CAD/arbalest/pull/66), <ins>showing how the new `ObjectTree` builds, how it works, and how it connects to the GUI (used the `ObjectTreeWidget` as an example)</ins><sup>#66</sup>
         - *07/17 Thu*: <ins>Fixed a few bugs related to the new `ObjectTree`</ins><sup>#66</sup>, and pushed these changes to the [PR#66](https://github.com/BRL-CAD/arbalest/pull/66)
-        - *07/20 Sun*: My mentors created a way for *MOOSE* to signal database changes. I'm working on <ins>using these methods to check when the new `ObjectTree` gets changed, and update the GUI accordingly</ins><sup>?</sup>
+        - *07/20 Sun*: My mentors created a way for *MOOSE* to signal database changes. I'm working on <ins>using these methods to check when the new `ObjectTree` gets changed, and update the GUI accordingly</ins><sup>#69</sup>
     - Week 8:
         - *07/21 Mon*: <ins>Copied the *qged* console, and started making some modifications to adapt it to *arbalest* and *MOOSE*</ins><sup>#67</sup>
         - *07/22 Tue*: <ins>Kept working on the console `QWidget`</ins><sup>#67</sup>
@@ -108,13 +112,13 @@
         - *07/29 Tue*: Opened [PR#67](https://github.com/BRL-CAD/arbalest/pull/67), containing a <ins>`QWidget` for a CLI. The console is a simplified clone of `QgConsole`, the console defined in *libqtcad* and used by *qged*. It uses *MOOSE* instead of calling *brlcad* libraries directly, and it supports command completion, geometry object names completion, and obviously the execution of commands</ins><sup>#67</sup>
         - *07/30 Wed*: Opened [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3), containing a <ins>new method for *MOOSE*'s `CommandString` module, that enables `Parse()` to give more information regarding the execution of a *GED* command</ins><sup>#3</sup>. <ins>Added license, copyright notice and support for multi inputs commands</ins><sup>#67</sup> to [PR#67](https://github.com/BRL-CAD/arbalest/pull/67)
         - *07/31 Thu*: Reworked [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3), <ins>following the directions of my mentors</ins><sup>#3</sup>. Participated in "*GSoC Final Submission Guidelines Info Session*" by the GSoC team
-        - *08/01 Fri*: Went back on <ins>implementing the database change callbacks `ChangeSignalHandler`</ins><sup>?</sup> (added to *MOOSE* previously by my mentors), in order to update the GUI when the database gets changed. 
-        - *08/02 Sat*: Kept working on <ins>implementing the database change callbacks `ChangeSignalHandler`</ins><sup>?</sup>. Also had a discussion with my mentors regarding [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3)
+        - *08/01 Fri*: Went back on <ins>implementing the database change callbacks `ChangeSignalHandler`</ins><sup>#69</sup> (added to *MOOSE* previously by my mentors), in order to update the GUI when the database gets changed. 
+        - *08/02 Sat*: Kept working on <ins>implementing the database change callbacks `ChangeSignalHandler`</ins><sup>#69</sup>. Also had a discussion with my mentors regarding [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3)
         - *08/03 Sun*: Made <ins>some small fixes</ins><sup>#3</sup> to [PR#3](https://github.com/BRL-CAD/MOOSE/pull/3). Finalized [PR#66](https://github.com/BRL-CAD/arbalest/pull/66) by <ins>moving the entire logic to the new `ObjectTree`</ins><sup>#66</sup>
     - Week 10:
         - *08/04 Mon*: <ins>Added support to commands that request to close the opened document to the console</ins><sup>#67</sup> in [PR#67](https://github.com/BRL-CAD/arbalest/pull/67)
         - *08/05 Tue*: <ins>Added support for non-existent objects to `ObjectTreeWidget`</ins><sup>#68</sup>
-        - *08/06 Wed*: Worked on <ins>implementing `ChangeSignalHandler` to the new `ObjectTree`</ins><sup>?</sup>
+        - *08/06 Wed*: Worked on <ins>implementing `ChangeSignalHandler` to the new `ObjectTree`</ins><sup>#69</sup>
         - *08/08 Fri*: Found 2 big issues related to using the new *MOOSE*'s `ChangeSignalHandler`, particularly regarding the usage of `rt_db_get_internal()` inside a callback function (these issues are better described in [this message](https://brlcad.zulipchat.com/#narrow/channel/111975-Google-Summer-of-Code/topic/New.20BRL-CAD.20GUI/near/533497167)). My mentors suggest that maybe `ChangeSignalHandler` should maybe take `const char* objectName` as an argument instead of `const Object& object` (to avoid getting the reference of a non-existent object). **[PR#3](https://github.com/BRL-CAD/MOOSE/pull/3) got merged!**
         - *08/09 Sat*: Proposed a solution to <ins>fix an issue regarding *MOOSE*'s `Parse()` new additional informations causing problems with the execution of certain commands</ins><sup>x</sup>, but my solution was way too farfetched, and could have been solved in a much simpler way. My mentors took care of the issue instead. <ins>Made some adjustments to the console to adapt to the fixes made to *MOOSE*'s `Parse()`</ins><sup>#67</sup> in [PR#67](https://github.com/BRL-CAD/arbalest/pull/67)
         - *08/10 Sun*: **[PR#67](https://github.com/BRL-CAD/arbalest/pull/67) got merged!**
@@ -134,40 +138,12 @@
         - *08/22 Fri*: 
         - *08/23 Sat*: 
         - *08/24 Sun*: 
-    - **Final evaluation**:
-        - ...
-
-## Resources
-
-### Videos
-
-**New Arbalest style and themes on Linux (Ubuntu 24.04.1 LTS)** *with theme change at runtime*:
-
-<video controls>
-  <source src="assets/videos/arbalest-linux-new.mp4" type="video/mp4">
-</video>
-
-**Old Arbalest style and themes on Linux (Ubuntu 24.04.1 LTS)**
-
-<video controls>
-  <source src="assets/videos/arbalest-linux-old.mp4" type="video/mp4">
-</video>
-
-### Images
-
-**New Arbalest style and light theme on Windows (Windows 11)** *with theme change at runtime*:
-
-![](assets/imgs/arbalest-windows-light-new.png)
-
-**Old Arbalest style and light theme on Windows (Windows 11)**:
-
-![](assets/imgs/arbalest-windows-light-old.png)
-
-**New Arbalest style and dark theme on Windows (Windows 11)** *with theme change at runtime*:
-
-![](assets/imgs/arbalest-windows-black-new.png)
-
-**Old Arbalest style and dark theme on Windows (Windows 11)**:
-
-![](assets/imgs/arbalest-windows-black-old.png)
-
+    - Week 13:
+        - *08/25 Mon*: 
+        - *08/26 Tue*: 
+        - *08/27 Wed*: 
+        - *08/28 Thu*: 
+        - *08/29 Fri*: 
+        - *08/30 Sat*: 
+        - *08/31 Sun*: 
+    - **Final evaluation: ...**:

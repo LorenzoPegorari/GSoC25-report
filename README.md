@@ -76,6 +76,75 @@ TODO
 | boolean-ops.g        | 458,833               | 325,700               | 29,016%       |
 | prim.g               | 231,867               | 175,533               | 24,296%       |
 
+## Resources
+
+### New console
+
+**New Arbalest console on Linux (Ubuntu 24.04.1 LTS)**:
+
+<video controls>
+  <source src="assets/videos/console-linux.mp4" type="video/mp4">
+</video>
+
+**New Arbalest console on Windows (Windows 11)**:
+
+<video controls>
+  <source src="assets/videos/console-windows.mp4" type="video/mp4">
+</video>
+
+### New GUI
+
+**New Arbalest style with dark theme on Linux (Ubuntu 24.04.1 LTS)** *with theme change at runtime*:
+
+<video controls>
+  <source src="assets/videos/gui-new-linux-dark.mp4" type="video/mp4">
+</video>
+
+**New Arbalest style with light theme on Linux (Ubuntu 24.04.1 LTS)** *with theme change at runtime*:
+
+<video controls>
+  <source src="assets/videos/gui-new-linux-light.mp4" type="video/mp4">
+</video>
+
+**New Arbalest style with dark theme on Windows (Windows 11)** *with theme change at runtime*:
+
+<video controls>
+  <source src="assets/videos/gui-new-windows-dark.mp4" type="video/mp4">
+</video>
+
+**New Arbalest style with light theme on Windows (Windows 11)** *with theme change at runtime*:
+
+<video controls>
+  <source src="assets/videos/gui-new-windows-light.mp4" type="video/mp4">
+</video>
+
+### Old GUI
+
+**Old Arbalest style with dark theme on Linux (Ubuntu 24.04.1 LTS)**:
+
+<video controls>
+  <source src="assets/videos/gui-old-linux-dark.mp4" type="video/mp4">
+</video>
+
+**Old Arbalest style with light theme on Linux (Ubuntu 24.04.1 LTS)**:
+
+<video controls>
+  <source src="assets/videos/gui-old-linux-light.mp4" type="video/mp4">
+</video>
+
+**Old Arbalest style with dark theme on Windows (Windows 11)**:
+
+<video controls>
+  <source src="assets/videos/gui-old-windows-dark.mp4" type="video/mp4">
+</video>
+
+**Old Arbalest style with light theme on Windows (Windows 11)**:
+
+<video controls>
+  <source src="assets/videos/gui-old-windows-light.mp4" type="video/mp4">
+</video>
+
+
 ## References
 
 - My GSoC'25 daily logs: [https://lorenzopegorari.github.io/GSoC25-report/logs](https://lorenzopegorari.github.io/GSoC25-report/logs)
