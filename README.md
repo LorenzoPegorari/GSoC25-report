@@ -410,7 +410,6 @@ The proposal incuded an idea for adding a functionality let the user create new 
     <thead>
         <tr>
             <th>Date of Merge</th>
-            <th>Repo</th>
             <th>Pull Request</th>
             <th>Status</th>
             <th>Description</th>
@@ -419,101 +418,87 @@ The proposal incuded an idea for adding a functionality let the user create new 
     <tbody>
         <tr>
             <td>June 7th, 2025</td>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/59">Removed <code>using</code> directives in header files (#59)</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/59">Removed <code>using</code> directives in header files [BRL-CAD/arbalest/PR#59]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
             <td>Removed <code>using</code> directives in header files, in order to do fix the error <code>rpcndr.h: 'byte': ambiguous symbol</code> when building on Windows</td>
         </tr>
         <tr>
             <td>June 7th, 2025</td>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/60">Reverted the hacks done to create a personalized title bar (#60)</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/60">Reverted the hacks done to create a personalized title bar [BRL-CAD/arbalest/PR#60]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
             <td>Reverted the hacks done to create a personalized title bar</td>
         </tr>
         <tr>
             <td>June 15th, 2025</td>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/61">Removed <code>MainWindow</code> icon memory waste and document area buttons' icons uncertainty regarding how they appear (#61)</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/61">Removed <code>MainWindow</code> icon memory waste and document area buttons' icons uncertainty regarding how they appear [BRL-CAD/arbalest/PR#61]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
             <td>Uniformed how the document area buttons' icons look on different OSs, and removed some useless memory allocation</td>
         </tr>
         <tr>
             <td>June 16th, 2025</td>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/62">Standardized "<i>arbalest_simple.qss</i>" to appear the same way on Windows and Linux (#62)</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/62">Standardized "<i>arbalest_simple.qss</i>" to appear the same way on Windows and Linux [BRL-CAD/arbalest/PR#62]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
             <td>Standardized the <code>Qy Style Sheet</code> "<i>arbalest_simple.qss</i>" to appear the same way on Windows and Linux</td>
         </tr>
         <tr>
             <td>June 16th, 2025</td>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/63">Added dedicated method that sets UI elements icons and added more theme variables for icon colors (#63)</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/63">Added dedicated method that sets UI elements icons and added more theme variables for icon colors [BRL-CAD/arbalest/PR#63]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
             <td>Added more theme variables to define icon colors, and added dedicated method that sets UI elements icons</td>
         </tr>
         <tr>
             <td>June 17th, 2025</td>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/64">Added support for changing themes at runtime (without reopening arbalest) | #64</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/64">Added support for changing themes at runtime (without reopening arbalest) [BRL-CAD/arbalest/PR#64]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
             <td>Added support for changing themes at runtime (without having reopen the application)</td>
         </tr>
         <tr>
-            <td>June 8th, 2025</td>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/66">#66</a></td>
+            <td>August 15th, 2025</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/66">Idea for new <code>ObjectTree</code> [BRL-CAD/arbalest/PR#66]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Replaced the old <code>ObjectTree</code>, which was based on <code>QHash</code>es that connect an id to one of the geometry object properties, with a new <code>ObjectTree</code>, in which a single <code>QHash</code> connects an id to an actual object that contains all the properties of a geometry object</td> 
         </tr>
         <tr>
-            <td>June 8th, 2025</td>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/67">#67</a></td>
+            <td>August 10th, 2025</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/67">New <code>Console</code> for arbalest (clone from <code>libqtcad</code>'s <code>QgConsole</code>, but using MOOSE) [BRL-CAD/arbalest/PR#67]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Created the <code>QWidget</code> <code>Console</code>, heavily based on <code>libqtcad</code>'s <code>QgConsole</code>, but without having direct connections to BRL-CAD's internal libraries, and connecting instead only to MOOSE functions.</td>
         </tr>
         <tr>
-            <td>June 8th, 2025</td>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/68">#68</a></td>
+            <td>August 21th, 2025</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/68">Added support to handle non-existent objects in the <code>ObjectTreeWidget</code> [BRL-CAD/arbalest/PR#68]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Modified <code>ObjectTreeWidget</code> in order to handle non-existent geometry objects.</td>
         </tr>
         <tr>
-            <td>June 8th, 2025</td>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/69">#69</a></td>
+            <td>August 23th, 2025</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/69">Allow the <code>ObjectTree</code> to update itself after a command execution [BRL-CAD/arbalest/PR#69]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Added methods to <code>ObjectTree</code> that allow to update the itself when a GED command that modified the geometry database was executed.</td>
         </tr>
         <tr>
             <td>-</td>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/70">#70</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/70">Fix segmentation fault when an object is selected in <code>ObjectTreeWidget</code> [BRL-CAD/arbalest/PR#70]</a></td>
             <td><img src="assets/imgs/open-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Heavily reworked <code>ObjectTreeWidget</code> in order to fix segmentation fault when an object is selected (this segmentation fault is a consequence of the modifications done to <code>ObjectTree</code>).</td>
         </tr>
         <tr>
             <td>-</td>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/71">#71</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/71">Added support for MOOSE's <code>ChangeType::References</code> [BRL-CAD/arbalest/PR#71]</a></td>
             <td><img src="assets/imgs/open-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Modified <code>databaseChangeHandler</code> to support the new <code>ChangeType::References</code>.</td>
         </tr>
         <tr>
-            <td>June 8th, 2025</td>
-            <td>BRL-CAD/MOOSE</td>
-            <td><a href="https://github.com/BRL-CAD/MOOSE/pull/3">#3</a></td>
+            <td>August 8th, 2025</td>
+            <td><a href="https://github.com/BRL-CAD/MOOSE/pull/3">Modified <code>Parse()</code> method so that it returns additional informations [BRL-CAD/MOOSE/PR#3]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Modified the <code>Parse()</code> method (which handles the execution of GED commands) so that it returns additional informations about the execution result.</td>
         </tr>
         <tr>
-            <td>June 8th, 2025</td>
-            <td>BRL-CAD/MOOSE</td>
-            <td><a href="https://github.com/BRL-CAD/MOOSE/pull/5">#5</a></td>
+            <td>August 11th, 2025</td>
+            <td><a href="https://github.com/BRL-CAD/MOOSE/pull/5">Changed callbacks argument from <code>Object</code> to <code>const char*</code> (<code>objectName</code>) [BRL-CAD/MOOSE/PR#5]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Modified the <code>ChangeSignalHandler</code> callback function, so that one of its arguments is the name of the object that called the callback, instead of a reference to the actual object. This was done to avoid issues related to having a reference to a not-fully-constructed object.</td>
         </tr>
     </tbody>
 </table>
