@@ -22,14 +22,17 @@ This project sets out to take the initial step in merging *BRL-CAD*'s two in-dev
 1. Introduction
     - Goals
     - Abandoned Goals
-2. Implementation Detals
-    - ...
-3. ...
-4. Minor Miscellaneous UI/UX improvements
-4. Conclusion
-5. Extra Contributions & Future Work
-6. Acknowledgments
-7. References
+2. Implementation Details
+    - Changes made to MOOSE
+    - A GED console for arbalest
+    - Reworking the `ObjectTree`
+3. Minor Miscellaneous Improvements
+4. Final Result
+5. Pull Requests
+6. Conclusion
+7. Future Work
+8. Acknowledgments
+9. References
 
 ---
 
@@ -59,7 +62,7 @@ The primary goals of the this project were:
 
 The proposal incuded an idea for adding a functionality let the user create new themes and modify already existing ones directly from within arbalest, making it simpler to customize the GUI. This idea was abandoned to prioritize the other more important goals.
 
-
+## Implementation Details
 
 <div align="center">
 
@@ -312,112 +315,9 @@ The proposal incuded an idea for adding a functionality let the user create new 
 
 </div>
 
-## PRs
+## Minor Miscellaneous Improvements
 
-
-
-<div align="center">
-
-<table>
-    <thead>
-        <tr>
-            <th>Repo</th>
-            <th>Pull Request</th>
-            <th>Status</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/59">#59</a></td>
-            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/60">#60</a></td>
-            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/61">#61</a></td>
-            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/62">#62</a></td>
-            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/63">#63</a></td>
-            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/64">#64</a></td>
-            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/66">#66</a></td>
-            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/67">#67</a></td>
-            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/68">#68</a></td>
-            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/69">#69</a></td>
-            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/70">#70</a></td>
-            <td><img src="assets/imgs/open-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/71">#71</a></td>
-            <td><img src="assets/imgs/open-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/MOOSE</td>
-            <td><a href="https://github.com/BRL-CAD/MOOSE/pull/3">#3</a></td>
-            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <td>BRL-CAD/MOOSE</td>
-            <td><a href="https://github.com/BRL-CAD/MOOSE/pull/5">#5</a></td>
-            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
-        </tr>
-    </tbody>
-</table>
-
-</div>
-
-## Resources
+## Final Result
 
 ### New console
 
@@ -485,6 +385,129 @@ The proposal incuded an idea for adding a functionality let the user create new 
   <source src="assets/videos/gui-old-windows-light.mp4" type="video/mp4">
 </video>
 
+## Pull Requests
+
+<div align="center">
+
+<table>
+    <thead>
+        <tr>
+            <th>Date of Merge</th>
+            <th>Repo</th>
+            <th>Pull Request</th>
+            <th>Status</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>June 8th, 2025</td>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/59">#59</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>June 8th, 2025</td>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/60">#60</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>June 8th, 2025</td>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/61">#61</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>June 8th, 2025</td>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/62">#62</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>June 8th, 2025</td>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/63">#63</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>June 8th, 2025</td>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/64">#64</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>June 8th, 2025</td>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/66">#66</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>June 8th, 2025</td>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/67">#67</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>June 8th, 2025</td>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/68">#68</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>June 8th, 2025</td>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/69">#69</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/70">#70</a></td>
+            <td><img src="assets/imgs/open-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/71">#71</a></td>
+            <td><img src="assets/imgs/open-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>June 8th, 2025</td>
+            <td>BRL-CAD/MOOSE</td>
+            <td><a href="https://github.com/BRL-CAD/MOOSE/pull/3">#3</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>June 8th, 2025</td>
+            <td>BRL-CAD/MOOSE</td>
+            <td><a href="https://github.com/BRL-CAD/MOOSE/pull/5">#5</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+## Conclusion
+
+## Future Work
+
+## Acknowledgements
 
 ## References
 
