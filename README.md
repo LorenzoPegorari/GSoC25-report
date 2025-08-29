@@ -59,6 +59,8 @@ The primary goals of the this project were:
 
 The proposal incuded an idea for adding a functionality let the user create new themes and modify already existing ones directly from within arbalest, making it simpler to customize the GUI. This idea was abandoned to prioritize the other more important goals.
 
+
+
 <div align="center">
 
 <table>

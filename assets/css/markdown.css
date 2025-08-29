@@ -129,3 +129,13 @@
 .markdown-body table th {
     font-weight: 600;
 }
+
+/* Code */
+.markdown-body code, .markdown-body tt {
+    padding: .2em .4em;
+    margin: 0;
+    font-size: 85%;
+    white-space: break-spaces;
+    background-color: #656c7633;
+    border-radius: 6px;
+}

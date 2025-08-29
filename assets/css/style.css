@@ -103,6 +103,14 @@ body.dark-mode .markdown-body table tr:nth-child(2n) {
     background-color: #151b23;
 }
 
+.markdown-body table {
+    text-align: center;
+}
+
+.markdown-body table img {
+    width: auto;
+}
+
 /* Content */
 .container {
     max-width: 1012px;
