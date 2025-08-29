@@ -418,46 +418,46 @@ The proposal incuded an idea for adding a functionality let the user create new 
     </thead>
     <tbody>
         <tr>
-            <td>June 8th, 2025</td>
+            <td>June 7th, 2025</td>
             <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/59">#59</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/59">Removed <code>using</code> directives in header files (#59)</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
             <td>Removed <code>using</code> directives in header files, in order to do fix the error <code>rpcndr.h: 'byte': ambiguous symbol</code> when building on Windows</td>
         </tr>
         <tr>
-            <td>June 8th, 2025</td>
+            <td>June 7th, 2025</td>
             <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/60">#60</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/60">Reverted the hacks done to create a personalized title bar (#60)</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Reverted the hacks done to create a personalized title bar</td>
         </tr>
         <tr>
-            <td>June 8th, 2025</td>
+            <td>June 15th, 2025</td>
             <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/61">#61</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/61">Removed <code>MainWindow</code> icon memory waste and document area buttons' icons uncertainty regarding how they appear (#61)</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Uniformed how the document area buttons' icons look on different OSs, and removed some useless memory allocation</td>
         </tr>
         <tr>
-            <td>June 8th, 2025</td>
+            <td>June 16th, 2025</td>
             <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/62">#62</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/62">Standardized "<i>arbalest_simple.qss</i>" to appear the same way on Windows and Linux (#62)</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Standardized the <code>Qy Style Sheet</code> "<i>arbalest_simple.qss</i>" to appear the same way on Windows and Linux</td>
         </tr>
         <tr>
-            <td>June 8th, 2025</td>
+            <td>June 16th, 2025</td>
             <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/63">#63</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/63">Added dedicated method that sets UI elements icons and added more theme variables for icon colors (#63)</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Added more theme variables to define icon colors, and added dedicated method that sets UI elements icons</td>
         </tr>
         <tr>
-            <td>June 8th, 2025</td>
+            <td>June 17th, 2025</td>
             <td>BRL-CAD/arbalest</td>
-            <td><a href="https://github.com/BRL-CAD/arbalest/pull/64">#64</a></td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/64">Added support for changing themes at runtime (without reopening arbalest) | #64</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Added support for changing themes at runtime (without having reopen the application)</td>
         </tr>
         <tr>
             <td>June 8th, 2025</td>
