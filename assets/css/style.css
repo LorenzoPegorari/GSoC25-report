@@ -64,6 +64,7 @@ a {
     border-radius: 50%;
     background-color: transparent;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 body.light-mode #home-button, body.light-mode #mode-button {
