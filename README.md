@@ -50,15 +50,19 @@ Aside from this main objective, I will also tackle compatibility issues related 
 The primary goals of the this project were:
 
 - **Improve MOOSE**: Improve the API MOOSE, partiularly creating links that allow a simple access to `libged`'s internal functions (the library that contains all GED-related functions)
-- **Creating a qged-like GED console for arbalest**: Designing a `QWidget` console that supports command execution, comand completion, object names completion and command history.
-- **Fix the style**: a
+- **Create a qged-like GED console for arbalest**: Designing a `QWidget` console that supports command execution, comand completion, object names completion and command history.
+- **Uniform the GUI across different OSs**: Rework the `Qt Style Sheets` in order to make the GUI appear the same on all OSs (focusing on Windows and Linux).
+- **Add support for changing themes at runtime**: Make it so that the light/dark themes can be switched without having to close and reopen the application.
 - **Revert the personalized title bar**: Go back to using the standard Qt title bar, in order to make arbalest more portable and easier to maintain.
 
+### Abandoned Goals
 
-TODO
+The proposal incuded an idea for adding a functionality let the user create new themes and modify already existing ones directly from within arbalest, making it simpler to customize the GUI. This idea was abandoned to prioritize the other more important goals.
+
+<div align="center">
 
 | Database name        | Average time old [μs] | Average time new [μs] | Time decrease |
-| -------------------- | --------------------- | --------------------- | ------------- |
+|:--------------------:|:---------------------:|:---------------------:|:-------------:|
 | sphflake.g           | 136595,333            | 3015,467              | 97,792%       |
 | havoc.g              | 521648,033            | 31060,400             | 94,046%       |
 | goliath.g            | 227395,900            | 17390,867             | 92,352%       |
@@ -98,6 +102,8 @@ TODO
 | world.g              | 502,733               | 350,300               | 30,321%       |
 | boolean-ops.g        | 458,833               | 325,700               | 29,016%       |
 | prim.g               | 231,867               | 175,533               | 24,296%       |
+
+</div>
 
 ## Resources
 
