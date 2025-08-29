@@ -310,6 +310,111 @@ The proposal incuded an idea for adding a functionality let the user create new 
 
 </div>
 
+## PRs
+
+
+
+<div align="center">
+
+<table>
+    <thead>
+        <tr>
+            <th>Repo</th>
+            <th>Pull Request</th>
+            <th>Status</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/59">#59</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/60">#60</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/61">#61</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/62">#62</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/63">#63</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/64">#64</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/66">#66</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/67">#67</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/68">#68</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/69">#69</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/70">#70</a></td>
+            <td><img src="assets/imgs/open-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/arbalest</td>
+            <td><a href="https://github.com/BRL-CAD/arbalest/pull/71">#71</a></td>
+            <td><img src="assets/imgs/open-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/MOOSE</td>
+            <td><a href="https://github.com/BRL-CAD/MOOSE/pull/3">#3</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td>BRL-CAD/MOOSE</td>
+            <td><a href="https://github.com/BRL-CAD/MOOSE/pull/5">#5</a></td>
+            <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
+            <td>TODO</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
 ## Resources
 
 ### New console
