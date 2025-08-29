@@ -61,47 +61,252 @@ The proposal incuded an idea for adding a functionality let the user create new 
 
 <div align="center">
 
-| Database name        | Average time old [μs] | Average time new [μs] | Time decrease |
-|:--------------------:|:---------------------:|:---------------------:|:-------------:|
-| sphflake.g           | 136595,333            | 3015,467              | 97,792%       |
-| havoc.g              | 521648,033            | 31060,400             | 94,046%       |
-| goliath.g            | 227395,900            | 17390,867             | 92,352%       |
-| m35.g                | 279974,600            | 25470,000             | 90,903%       |
-| castle.g             | 31985,833             | 4053,567              | 87,327%       |
-| tank_car.g           | 40935,367             | 6102,100              | 85,093%       |
-| cray.g               | 10066,467             | 1556,033              | 84,542%       |
-| cube.g               | 16964,633             | 2671,067              | 84,255%       |
-| die.g                | 2356,700              | 395,133               | 83,234%       |
-| xmp.g                | 8374,900              | 1426,800              | 82,963%       |
-| star.g               | 6679,400              | 1497,033              | 77,587%       |
-| bldg391.g            | 16193,933             | 3660,800              | 77,394%       |
-| toyjeep.g            | 11734,767             | 2715,133              | 76,862%       |
-| annual_gift_man.g    | 6201,500              | 1439,600              | 76,786%       |
-| lgt-test.g           | 5166,800              | 1204,833              | 76,681%       |
-| kman.g               | 7267,067              | 1757,100              | 75,821%       |
-| bearing.g            | 967,500               | 245,167               | 74,660%       |
-| galileo.g            | 2518,833              | 646,967               | 74,315%       |
-| radialgrid.g         | 1097,567              | 290,800               | 73,505%       |
-| truck.g              | 22349,433             | 6465,400              | 71,071%       |
-| aet.g                | 2586,233              | 764,700               | 70,432%       |
-| demo.g               | 6670,700              | 1994,067              | 70,107%       |
-| traffic_light.g      | 95068,733             | 32956,033             | 65,335%       |
-| shipping_container.g | 22419,667             | 7780,067              | 65,298%       |
-| ktank.g              | 7275,533              | 2609,133              | 64,138%       |
-| axis.g               | 1022,267              | 438,700               | 57,086%       |
-| crod.g               | 638,667               | 276,833               | 56,654%       |
-| operators.g          | 2365,900              | 1069,200              | 54,808%       |
-| pic.g                | 628,400               | 298,233               | 52,541%       |
-| moss.g               | 429,633               | 211,333               | 50,811%       |
-| rounds.g             | 492,767               | 245,933               | 50,091%       |
-| woodsman.g           | 624,833               | 323,633               | 48,205%       |
-| terra.g              | 414,367               | 216,733               | 47,695%       |
-| wave.g               | 653,667               | 372,800               | 42,968%       |
-| cornell.g            | 544,233               | 342,533               | 37,061%       |
-| cornell-kunigami.g   | 540,900               | 348,800               | 35,515%       |
-| world.g              | 502,733               | 350,300               | 30,321%       |
-| boolean-ops.g        | 458,833               | 325,700               | 29,016%       |
-| prim.g               | 231,867               | 175,533               | 24,296%       |
+<table>
+    <thead>
+        <tr>
+            <th>Database name</th>
+            <th>Average time old [μs]</th>
+            <th>Average time new [μs]</th>
+            <th>Time decrease</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>sphflake.g</th>
+            <td>136595,333</td>
+            <td>3015,467</td>
+            <td>97,792%</td>
+        </tr>
+        <tr>
+            <th>havoc.g</th>
+            <td>521648,033</td>
+            <td>31060,400</td>
+            <td>94,046%</td>
+        </tr>
+        <tr>
+            <th>goliath.g</th>
+            <td>227395,900</td>
+            <td>17390,867</td>
+            <td>92,352%</td>
+        </tr>
+        <tr>
+            <th>m35.g</th>
+            <td>279974,600</td>
+            <td>25470,000</td>
+            <td>90,903%</td>
+        </tr>
+        <tr>
+            <th>castle.g</th>
+            <td>31985,833</td>
+            <td>4053,567</td>
+            <td>87,327%</td>
+        </tr>
+        <tr>
+            <th>tank_car.g</th>
+            <td>40935,367</td>
+            <td>6102,100</td>
+            <td>85,093%</td>
+        </tr>
+        <tr>
+            <th>cray.g</th>
+            <td>10066,467</td>
+            <td>1556,033</td>
+            <td>84,542%</td>
+        </tr>
+        <tr>
+            <th>cube.g</th>
+            <td>16964,633</td>
+            <td>2671,067</td>
+            <td>84,255%</td>
+        </tr>
+        <tr>
+            <th>die.g</th>
+            <td>2356,700</td>
+            <td>395,133</td>
+            <td>83,234%</td>
+        </tr>
+        <tr>
+            <th>xmp.g</th>
+            <td>8374,900</td>
+            <td>1426,800</td>
+            <td>82,963%</td>
+        </tr>
+        <tr>
+            <th>star.g</th>
+            <td>6679,400</td>
+            <td>1497,033</td>
+            <td>77,587%</td>
+        </tr>
+        <tr>
+            <th>bldg391.g</th>
+            <td>16193,933</td>
+            <td>3660,800</td>
+            <td>77,394%</td>
+        </tr>
+        <tr>
+            <th>toyjeep.g</th>
+            <td>11734,767</td>
+            <td>2715,133</td>
+            <td>76,862%</td>
+        </tr>
+        <tr>
+            <th>annual_gift_man.g</th>
+            <td>6201,500</td>
+            <td>1439,600</td>
+            <td>76,786%</td>
+        </tr>
+        <tr>
+            <th>lgt-test.g</th>
+            <td>5166,800</td>
+            <td>1204,833</td>
+            <td>76,681%</td>
+        </tr>
+        <tr>
+            <th>kman.g</th>
+            <td>7267,067</td>
+            <td>1757,100</td>
+            <td>75,821%</td>
+        </tr>
+        <tr>
+            <th>bearing.g</th>
+            <td>967,500</td>
+            <td>245,167</td>
+            <td>74,660%</td>
+        </tr>
+        <tr>
+            <th>galileo.g</th>
+            <td>2518,833</td>
+            <td>646,967</td>
+            <td>74,315%</td>
+        </tr>
+        <tr>
+            <th>radialgrid.g</th>
+            <td>1097,567</td>
+            <td>290,800</td>
+            <td>73,505%</td>
+        </tr>
+        <tr>
+            <th>truck.g</th>
+            <td>22349,433</td>
+            <td>6465,400</td>
+            <td>71,071%</td>
+        </tr>
+        <tr>
+            <th>aet.g</th>
+            <td>2586,233</td>
+            <td>764,700</td>
+            <td>70,432%</td>
+        </tr>
+        <tr>
+            <th>demo.g</th>
+            <td>6670,700</td>
+            <td>1994,067</td>
+            <td>70,107%</td>
+        </tr>
+        <tr>
+            <th>traffic_light.g</th>
+            <td>95068,733</td>
+            <td>32956,033</td>
+            <td>65,335%</td>
+        </tr>
+        <tr>
+            <th>shipping_container.g</th>
+            <td>22419,667</td>
+            <td>7780,067</td>
+            <td>65,298%</td>
+        </tr>
+        <tr>
+            <th>ktank.g</th>
+            <td>7275,533</td>
+            <td>2609,133</td>
+            <td>64,138%</td>
+        </tr>
+        <tr>
+            <th>axis.g</th>
+            <td>1022,267</td>
+            <td>438,700</td>
+            <td>57,086%</td>
+        </tr>
+        <tr>
+            <th>crod.g</th>
+            <td>638,667</td>
+            <td>276,833</td>
+            <td>56,654%</td>
+        </tr>
+        <tr>
+            <th>operators.g</th>
+            <td>2365,900</td>
+            <td>1069,200</td>
+            <td>54,808%</td>
+        </tr>
+        <tr>
+            <th>pic.g</th>
+            <td>628,400</td>
+            <td>298,233</td>
+            <td>52,541%</td>
+        </tr>
+        <tr>
+            <th>moss.g</th>
+            <td>429,633</td>
+            <td>211,333</td>
+            <td>50,811%</td>
+        </tr>
+        <tr>
+            <th>rounds.g</th>
+            <td>492,767</td>
+            <td>245,933</td>
+            <td>50,091%</td>
+        </tr>
+        <tr>
+            <th>woodsman.g</th>
+            <td>624,833</td>
+            <td>323,633</td>
+            <td>48,205%</td>
+        </tr>
+        <tr>
+            <th>terra.g</th>
+            <td>414,367</td>
+            <td>216,733</td>
+            <td>47,695%</td>
+        </tr>
+        <tr>
+            <th>wave.g</th>
+            <td>653,667</td>
+            <td>372,800</td>
+            <td>42,968%</td>
+        </tr>
+        <tr>
+            <th>cornell.g</th>
+            <td>544,233</td>
+            <td>342,533</td>
+            <td>37,061%</td>
+        </tr>
+        <tr>
+            <th>cornell-kunigami.g</th>
+            <td>540,900</td>
+            <td>348,800</td>
+            <td>35,515%</td>
+        </tr>
+        <tr>
+            <th>world.g</th>
+            <td>502,733</td>
+            <td>350,300</td>
+            <td>30,321%</td>
+        </tr>
+        <tr>
+            <th>boolean-ops.g</th>
+            <td>458,833</td>
+            <td>325,700</td>
+            <td>29,016%</td>
+        </tr>
+        <tr>
+            <th>prim.g</th>
+            <td>231,867</td>
+            <td>175,533</td>
+            <td>24,296%</td>
+        </tr>
+    </tbody>
+</table>
 
 </div>
 
