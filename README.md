@@ -67,11 +67,19 @@ The proposal incuded an idea for adding a functionality let the user create new 
 
 ## Implementation Details
 
+
+
 ### Changes made to MOOSE
+
+
 
 ### A GED console for arbalest
 
+
+
 ### Reworking the `ObjectTree`
+
+
 
 <div align="center">
 
@@ -414,7 +422,7 @@ The proposal incuded an idea for adding a functionality let the user create new 
             <td>BRL-CAD/arbalest</td>
             <td><a href="https://github.com/BRL-CAD/arbalest/pull/59">#59</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>TODO</td>
+            <td>Removed <code>using</code> directives in header files, in order to do fix the error <code>rpcndr.h: 'byte': ambiguous symbol</code> when building on Windows</td>
         </tr>
         <tr>
             <td>June 8th, 2025</td>
