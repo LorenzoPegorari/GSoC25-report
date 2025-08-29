@@ -19,18 +19,41 @@ This project sets out to take the initial step in merging *BRL-CAD*'s two in-dev
 ---
 
 ## Table of Contents
-1. Project Overview
-    - Current Issues
+1. Introduction
     - Goals
+    - Abandoned Goals
 2. Implementation Detals
     - ...
 3. ...
+4. Minor Miscellaneous UI/UX improvements
 4. Conclusion
 5. Extra Contributions & Future Work
 6. Acknowledgments
 7. References
 
 ---
+
+## Introduction
+
+Over the past few years, significant efforts have been made to create a new Graphical User Interface (GUI) for BRL-CAD, with the goal of replacing the two outdated but still-used GUIs: "*mged*" and "*archer*".
+
+The two most successful efforts have been "**arbalest**" and "**qged**". Although both are Qt-based GUIs that share the same goal, they have fundamentally different implementation philosophies:
+- **arbalest** is a clean implementation built on top of "**MOOSE**", BRL-CAD's new lightweight, modular, object-oriented C++ API. This approach allows developers to focus on creating maintainable, easily scalable code and adhering to good coding practices.
+- **qged**, in contrast, relies on low-level calls directly to BRL-CAD's internal libraries. While this approach offers significant advantages, particularly for creating really advanced features, this low-level access has required modifications to the BRL-CAD core libraries, potentially making the GUI less scalable and harder to maintain.
+
+For my *Google Summer of Code 2025* project, I worked on enhancing the more successful GUI arbalest, taking the first step in merging arbalest and qged, specifically by transferring qged's sophisticated *GED* console into arbalest, while preserving the GUI's distinctive clean and easy-to-scale architecture.
+
+Aside from this main objective, I will also tackle compatibility issues related to arbalest’s Qt widgets to ensure proper display across different OSs (Linux and Windows mainly), as well as resolve various GUI-related bugs.
+
+### Goals
+
+The primary goals of the this project were:
+
+- **Improve MOOSE**: Improve the API MOOSE, partiularly creating links that allow a simple access to `libged`'s internal functions (the library that contains all GED-related functions)
+- **Creating a qged-like GED console for arbalest**: Designing a `QWidget` console that supports command execution, comand completion, object names completion and command history.
+- **Fix the style**: a
+- **Revert the personalized title bar**: Go back to using the standard Qt title bar, in order to make arbalest more portable and easier to maintain.
+
 
 TODO
 

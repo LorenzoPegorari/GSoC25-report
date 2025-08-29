@@ -14,7 +14,7 @@
 
 ## PRs
 
-### [Arbalest](https://github.com/BRL-CAD/arbalest)
+### [arbalest](https://github.com/BRL-CAD/arbalest)
 
 - [PR#59](https://github.com/BRL-CAD/arbalest/pull/59) = Removed using directives in header files
 - [PR#60](https://github.com/BRL-CAD/arbalest/pull/60) = Reverted the hacks done to create a personalized title bar and restored the "standard Qt" look for the title bar
