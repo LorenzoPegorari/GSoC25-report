@@ -23,19 +23,19 @@ This project sets out to take the initial step in merging *BRL-CAD*'s two in-dev
     - Goals
     - Abandoned Goals
 2. Implementation Details
-    - Changes made to MOOSE
-    - A GED console for arbalest
+    - Changes Made to MOOSE
     - Reworking the `ObjectTree`
+    - The GED Console
+        - How the Console Looks
+    - Improving the `Qt Style Sheet`
+        - New GUI
+        - Old GUI
 3. Minor Miscellaneous Improvements
-4. Final Result
-    - New Console
-    - New GUI
-    - Old GUI
-5. Pull Requests
-6. Conclusion
-7. Future Work
-8. Acknowledgments
-9. References
+4. Pull Requests
+5. Conclusion
+6. Future Work
+7. Acknowledgments
+8. References
 
 ---
 
@@ -69,18 +69,9 @@ The proposal incuded an idea for adding a functionality that would have given th
 
 ## Implementation Details
 
-
-
-### Changes made to MOOSE
-
-
-
-### A GED console for arbalest
-
-
+What follows are some details about the most important changes that I have done to arbalest during this project.
 
 ### Reworking the `ObjectTree`
-
 
 The `ObjectTree` is an essential class which has task of representing the open geometric database, particularly the tree structure of the objects in a database.
 
@@ -90,11 +81,12 @@ The `ObjectTree` is an essential class which has task of representing the open g
 > BRL-CAD's databases allow primitives and combinations to be inside many different combinations at the same time. This means that the same object, even though it's defined only once in memory, can be a children of many combinations simultaneously, so it can appear many times inside the tree that represents the objects of a database.
 
 Previously the `ObjectTree` was mainly composed of many `QHash`es that connected an unique item's id, in which an item is a node in the database tree, to one property of the corresponding geometry object. For example:
+
 ```c++
-// fullPathMap connects an item id to the corresponding object's path
+/* fullPathMap connects an item id to the corresponding object's path */
 QHash<int, QString> fullPathMap;
 
-// objectIdParentObjectIdMap connects an item id to the item id of the corresponding item's parent
+/* objectIdParentObjectIdMap connects an item id to the item id of the corresponding item's parent */
 QHash<int, int> objectIdParentObjectIdMap;
 ```
 
@@ -124,9 +116,9 @@ Finally, I also reworked the "building `ObjectTree`" algorithm, making it more e
 
 The results of my work is that now:
 - Less memory is allocated the more objects occurr many times in the database tree (a little bit more memory then before if all objects appear only once, mostly because of memory alignment reasons).
-- `ObjectTree` building time is down by an average of $66.4\%$ ($97.8\%$ in the best situation, $24.4\%$ in the worst situation).
+- `ObjectTree` building time is down by an average of 66.4% (97.8% in the best situation, 24.4% in the worst situation).
 
-With this calculations I'm refering to the following data table, which was created by testing the old and the new `ObjectTree` on 39 standard BRL-CAD databases (that can be found [here](https://github.com/BRL-CAD/brlcad/tree/main/db)).
+These conclusions come from the following data table, which was created by testing the old and the new `ObjectTree` on 39 standard BRL-CAD databases (that can be found [here](https://github.com/BRL-CAD/brlcad/tree/main/db)).
 
 
 <div align="center">
@@ -500,6 +492,54 @@ With this calculations I'm refering to the following data table, which was creat
 
 </div>
 
+The new `ObjectTree` required many changes across the entire code, to adjust everything to the new `ObjectTree` structure.
+
+For details, refer to the pull requests: [#66](https://github.com/BRL-CAD/arbalest/pull/66).
+
+### Changes Made to MOOSE
+
+MOOSE required some new functionalities and modifications.
+
+My mentor Daniel Rossberg created hooks for registering and deregistering callback functions through the underlying methods `db_add_changed_clbk()` and `db_rm_changed_clbk()`. These callbacks functions would be called when an object in the database is added/removed/modified. The arguments of the callback were a reference to the object and an `enum` that indicates if said object was added/removed/modified.
+
+While testing this new functionality I found some issues related to having a reference to a not-fully-constructed, so in the end we switched to having as an argument the name of the object, instead of a reference to it.
+
+Daniel Rossberg also added a way to call the registered callback if a reference is updated (a reference how combinations refer to its children), using the underlying methods `db_add_update_nref_clbk()` and `db_rm_update_nref_clbk()`.
+
+Finally, I also modified the `Parse()` method (inside the `CommandString` module), the method that handles the execution of GED commands, in order for it to return more informations about the execution result. These additional informations will be used by the new console to handle some specific commands.
+
+**For details, refer to the pull requests: [#3](https://github.com/BRL-CAD/arbalest/pull/3), [#5](https://github.com/BRL-CAD/arbalest/pull/5), [#71](https://github.com/BRL-CAD/arbalest/pull/71).**
+
+### The GED Console
+
+The GED console is the core of my proposed project.
+
+The actual `Console` `QWidget` isn't that complex, and is mostly taken from `libqtcad`'s `QgConsole` (the console that is used in qged), with some modifications to make it simpler and adapt it to calling MOOSE's methods.
+
+The previously described changes made to MOOSE allowed to easily implement support for all commands, and with the new `ObjectTree` it was easy to add callbacks for when a command caused changes in the database.
+
+The most difficult part was creating methods that allowed to update the `ObjectTree` after a command execution. To do that I created some methods for when an object is added/removed/modified, that allowed to queue Qt signals. This way, when these queued signals actually called the connected slots, it meant that the added/removed/modified objects were fully created/modified/removed, so then updating these objects could go out smoothly.
+
+After this, I created an algorithm that goes through the entire database tree and, for each node, checks if anything is different in the tree structure, and if so, updates it.
+
+Finally, I revised many components of the GUI, such as `Properties`, `ObjectTreeWidget`, and many more, so that they would be able to manage the new situations introduced by certain GED commands. An example of these situations are the "kill commands" (`kill`, `killall`, `killtree` and `killrefs`), which introduced for the first time the possibility of destroying objects in the database. This meant that I had to make it so that if an object was killed in the database, all the parts of the GUI would show everything correctly following this command. 
+
+**For details, refer to the pull requests: [#67](https://github.com/BRL-CAD/arbalest/pull/67), [#68](https://github.com/BRL-CAD/arbalest/pull/68), [#69](https://github.com/BRL-CAD/arbalest/pull/69), [#70](https://github.com/BRL-CAD/arbalest/pull/70), [#71](https://github.com/BRL-CAD/arbalest/pull/71)**.
+
+#### How the Console Looks
+
+**New Arbalest console on Linux (Ubuntu 24.04.1 LTS)**:
+
+<video controls>
+  <source src="assets/videos/console-linux.mp4" type="video/mp4">
+</video>
+
+**New Arbalest console on Windows (Windows 11)**:
+
+<video controls>
+  <source src="assets/videos/console-windows.mp4" type="video/mp4">
+</video>
+
 ### Improving the `Qt Style Sheet`
 
 Many changes were made to uniform how the `QWidget`s look on Windows and Linux, and to make the code easier to maintain.
@@ -510,7 +550,7 @@ After that, I focused on fixing the background color issues that many widgets ha
 
 In the end I added support for changing themes at runtime (without having to reopen the application).
 
-For details, refer to the pull requests: [#60](https://github.com/BRL-CAD/arbalest/pull/60), [#61](https://github.com/BRL-CAD/arbalest/pull/61), [#62](https://github.com/BRL-CAD/arbalest/pull/62), [#63](https://github.com/BRL-CAD/arbalest/pull/63), [#64](https://github.com/BRL-CAD/arbalest/pull/64).
+**For details, refer to the pull requests: [#60](https://github.com/BRL-CAD/arbalest/pull/60), [#61](https://github.com/BRL-CAD/arbalest/pull/61), [#62](https://github.com/BRL-CAD/arbalest/pull/62), [#63](https://github.com/BRL-CAD/arbalest/pull/63), [#64](https://github.com/BRL-CAD/arbalest/pull/64).**
 
 #### New GUI
 
@@ -567,24 +607,7 @@ For details, refer to the pull requests: [#60](https://github.com/BRL-CAD/arbale
 ## Minor Miscellaneous Improvements
 
 Other minor bug fixes and tweaks were done:
-- Removed <code>using</code> directives in header files, in order to do fix the error <code>rpcndr.h: 'byte': ambiguous symbol</code> when building on Windows: [#59](https://github.com/BRL-CAD/arbalest/pull/59)
-- 
-
-## Final Result
-
-### New Console
-
-**New Arbalest console on Linux (Ubuntu 24.04.1 LTS)**:
-
-<video controls>
-  <source src="assets/videos/console-linux.mp4" type="video/mp4">
-</video>
-
-**New Arbalest console on Windows (Windows 11)**:
-
-<video controls>
-  <source src="assets/videos/console-windows.mp4" type="video/mp4">
-</video>
+- Removed <code>using</code> directives in header files, in order to do fix the error <code>rpcndr.h: 'byte': ambiguous symbol</code> when building on Windows: [#59](https://github.com/BRL-CAD/arbalest/pull/59).
 
 ## Pull Requests
 
