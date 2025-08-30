@@ -2,16 +2,18 @@
 
 <img align="center" src="assets/imgs/logos/logos.png" alt="GSoC_BRLCAD_arbalest_logo">
 
+<h4 align="center"><a href="https://gist.github.com/LorenzoPegorari/adf89487a5adbdd7741417ea286bfaf5">Read as a GitHub Gist!</a></h4>
+
 ---
 
 ## Project
 **Developing a MOOSE-based Console for arbalest: a first step to merge arbalest and qged**
 
 ## Organization
-**BRL-CAD**
+BRL-CAD
 
 ## Mentors
-**Daniel Rossberg**, **Himanshu Sekhar Nayak**
+Daniel Rossberg, Himanshu Sekhar Nayak
 
 ## Abstract
 This project sets out to take the initial step in merging **BRL-CAD**'s two in-development GUIs: "**arbalest**" and "**qged**". The primary objective is to transfer **qged**'s sophisticated **GED** console, which works via low-level calls to **BRL-CAD**'s core libraries (such as **libged** and **librt**), into **arbalest**, while preserving the application's distinctive clean and easy-to-scale architecture. To support this endeavor, I will also expand **BRL-CAD**'s new lightweight, modular, object-oriented API, known as "**MOOSE**". In addition to these core tasks, I will tackle compatibility issues related to **arbalest**’s Qt widgets to ensure proper display across different OSs, as well as resolve various GUI-related bugs.
@@ -119,7 +121,6 @@ The results of my work are as follows:
 - `ObjectTree` building time is down by an average of 66.4% (97.8% in the best situation, 24.4% in the worst situation).
 
 These conclusions come from the following data table, which was created by testing the old and the new `ObjectTree` on 39 standard **BRL-CAD** databases (that can be found [here](https://github.com/BRL-CAD/brlcad/tree/main/db)).
-
 
 <div align="center">
 
