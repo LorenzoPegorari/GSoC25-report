@@ -8,13 +8,13 @@
 **Developing a MOOSE-based Console for arbalest: a first step to merge arbalest and qged**
 
 ## Organization
-BRL-CAD
+**BRL-CAD**
 
 ## Mentors
-Daniel Rossberg, Himanshu Sekhar Nayak
+**Daniel Rossberg**, **Himanshu Sekhar Nayak**
 
 ## Abstract
-This project sets out to take the initial step in merging *BRL-CAD*'s two in-development GUIs: "*arbalest*" and "*qged*". The primary objective is to transfer *qged*'s sophisticated *GED* console, which works via low-level calls to *BRL-CAD*'s core libraries (such as *libged* and *librt*), into *arbalest*, while preserving the application's distinctive clean and easy-to-scale architecture. To support this endeavor, I will also expand *BRL-CAD*'s new lightweight, modular, object-oriented API, known as "*MOOSE*". In addition to these core tasks, I will tackle compatibility issues related to *arbalest*’s Qt widgets to ensure proper display across different OSs, as well as resolve various GUI-related bugs.
+This project sets out to take the initial step in merging **BRL-CAD**'s two in-development GUIs: "**arbalest**" and "**qged**". The primary objective is to transfer **qged**'s sophisticated **GED** console, which works via low-level calls to **BRL-CAD**'s core libraries (such as **libged** and **librt**), into **arbalest**, while preserving the application's distinctive clean and easy-to-scale architecture. To support this endeavor, I will also expand **BRL-CAD**'s new lightweight, modular, object-oriented API, known as "**MOOSE**". In addition to these core tasks, I will tackle compatibility issues related to **arbalest**’s Qt widgets to ensure proper display across different OSs, as well as resolve various GUI-related bugs.
 
 ---
 
@@ -23,8 +23,8 @@ This project sets out to take the initial step in merging *BRL-CAD*'s two in-dev
     - Goals
     - Abandoned Goals
 2. Implementation Details
-    - Changes Made to MOOSE
     - Reworking the `ObjectTree`
+    - Changes Made to MOOSE
     - The GED Console
         - How the Console Looks
     - Improving the `Qt Style Sheet`
@@ -32,7 +32,7 @@ This project sets out to take the initial step in merging *BRL-CAD*'s two in-dev
         - Old GUI
 3. Minor Miscellaneous Improvements
 4. Pull Requests
-5. Conclusion
+5. Conclusions
 6. Future Work
 7. Acknowledgments
 8. References
@@ -41,35 +41,35 @@ This project sets out to take the initial step in merging *BRL-CAD*'s two in-dev
 
 ## Introduction
 
-Over the past few years, significant efforts have been made to create a new Graphical User Interface (GUI) for BRL-CAD, with the goal of replacing the two outdated but still-used GUIs: "*mged*" and "*archer*".
+Over the past few years, significant efforts have been made to create a new Graphical User Interface (GUI) for **BRL-CAD**, with the goal of replacing the two outdated but still-used GUIs: "*mged*" and "*archer*".
 
 The two most successful efforts have been "**arbalest**" and "**qged**".
 
 Although both are Qt-based GUIs that share the same goal, they have fundamentally different implementation philosophies:
-- **arbalest** is a clean implementation built on top of "**MOOSE**", BRL-CAD's new lightweight, modular, object-oriented C++ API. This approach allows developers to focus on creating maintainable, easily scalable code and adhering to good coding practices.
-- **qged**, in contrast, relies on low-level calls directly to BRL-CAD's internal libraries. While this approach offers significant advantages, particularly for creating really advanced features, this low-level access has required modifications to BRL-CAD's core libraries, making the GUI less scalable and harder to maintain.
+- **arbalest** is a clean implementation built on top of "**MOOSE**", **BRL-CAD**'s new lightweight, modular, object-oriented C++ API. This approach allows developers to focus on creating maintainable, easily scalable code and adhering to good coding practices.
+- **qged**, in contrast, relies on low-level calls directly to **BRL-CAD**'s internal libraries. While this approach offers significant advantages, particularly for creating really advanced features, this low-level access has required modifications to **BRL-CAD**'s core libraries, making the GUI less scalable and harder to maintain.
 
-For my *Google Summer of Code 2025* project, I worked on enhancing the more successful GUI arbalest, taking the first step in merging arbalest and qged, specifically by transferring qged's sophisticated *GED* (_**G**eometry **ED**iting library_, a CLI library for working on BRL-CAD geometry) console into arbalest, while preserving the GUI's distinctive clean and easy-to-scale architecture.
+For my *Google Summer of Code 2025* project, I worked on enhancing the more successful GUI **arbalest**, taking the first step in merging **arbalest** and **qged**, specifically by transferring **qged**'s sophisticated **GED** (_**G**eometry **ED**iting library_, a CLI library for working on **BRL-CAD** geometry) console into **arbalest**, while preserving the GUI's distinctive clean and easy-to-scale architecture.
 
-Aside from this main objective, I will also tackle compatibility issues related to arbalest’s Qt widgets to ensure proper display across different OSs (Linux and Windows mainly), as well as resolve various GUI-related bugs.
+Aside from this main objective, I will also tackle compatibility issues related to **arbalest**’s Qt widgets to ensure proper display across different OSs (Linux and Windows mainly), as well as resolve various GUI-related bugs.
 
 ### Goals
 
 The primary goals of the project were:
 
-- **Improve MOOSE**: Improve the API MOOSE, particularly creating links that allow simple access to `libged`'s internal functions (the library that contains all GED-related functions)
-- **Create a qged-like GED console for arbalest**: Designing a `QWidget` console that supports GED command execution, command completion, object names completion and command history.
+- **Improve MOOSE**: Improve the API **MOOSE**, particularly creating links that allow simple access to `libged`'s internal functions (the library that contains all **GED**-related functions)
+- **Create a qged-like GED console for arbalest**: Designing a `QWidget` console that supports **GED** command execution, command completion, object names completion and command history.
 - **Uniform the GUI across different OSs**: Rework the `Qt Style Sheet` in order to make the GUI appear the same on all OSs (focusing on Windows and Linux).
 - **Add support for changing themes at runtime**: Make it so that the light/dark themes can be switched without having to close and reopen the application.
-- **Revert the personalized title bar**: Go back to using the standard Qt title bar, in order to make arbalest more portable and easier to maintain.
+- **Revert the personalized title bar**: Go back to using the standard Qt title bar, in order to make **arbalest** more portable and easier to maintain.
 
 ### Abandoned Goals
 
-The proposal included an idea for adding a functionality that would have given the user the ability to create new themes (outside of the standard light/dark ones) and modify already existing ones directly from within arbalest, making it simpler to customize the GUI. This idea was abandoned to prioritize more critical goals.
+The proposal included an idea for adding a functionality that would have given the user the ability to create new themes (outside of the standard light/dark ones) and modify already existing ones directly from within **arbalest**, making it simpler to customize the GUI. This idea was abandoned to prioritize more critical goals.
 
 ## Implementation Details
 
-What follows are details about the most important changes that I have done to arbalest during this project.
+What follows are details about the most important changes that I have done to **arbalest** during this project.
 
 ### Reworking the `ObjectTree`
 
@@ -77,8 +77,8 @@ The `ObjectTree` is an essential class which has the task of representing the op
 
 > _**Note**_:
 >
-> It's important to notice that a BRL-CAD database is composed of two objects: *primitives* (which are the actual solids) and *combinations* (which are groups that contain other combinations and/or primitives).
-> BRL-CAD's databases allow primitives and combinations to be inside many different combinations at the same time. This means that the same object, even though it's defined only once in memory, can be a child of many combinations simultaneously, so it can appear many times inside the tree that represents the objects of a database.
+> It's important to notice that a **BRL-CAD** database is composed of two objects: *primitives* (which are the actual solids) and *combinations* (which are groups that contain other combinations and/or primitives).
+> **BRL-CAD**'s databases allow primitives and combinations to be inside many different combinations at the same time. This means that the same object, even though it's defined only once in memory, can be a child of many combinations simultaneously, so it can appear many times inside the tree that represents the objects of a database.
 
 Previously the `ObjectTree` was mainly composed of many `QHash`es that connected a unique item's id, in which an item is a node in the database tree, to one property of the corresponding geometry object. For example:
 
@@ -94,11 +94,11 @@ This architecture has the privilege of being extremely simple, but obviously has
 - The `ObjectTree`'s building speed after opening a file is pretty slow, because we need to recursively go through the database tree and fill out many `QHash`es with the properties of each node.
 - When we need to retrieve many properties of the same item, we have to search for the same item's id in multiple `QHash`es, instead of just once.
 
-To greatly improve the `ObjectTree`'s architecture I took full advantage of how BRL-CAD's databases are structured, by defining the following two classes:
+To greatly improve the `ObjectTree`'s architecture I took full advantage of how **BRL-CAD**'s databases are structured, by defining the following two classes:
 - `ObjectTreeItem`, which represents a node in the database tree. It contains the following properties:
     - a reference to the `ObjectTreeItem` parent,
     - a list of references to the `ObjectTreeItem`s children,
-    - a reference to the `ObjectTreeItemData` that represents the BRL-CAD's object in the current node in the database tree,
+    - a reference to the `ObjectTreeItemData` that represents the **BRL-CAD**'s object in the current node in the database tree,
     - some specific properties for a node in the database tree (eg: the visibility state of the node, the unique item's id)
 - `ObjectTreeItemData`, which represents an object in the database. It contains the following properties:
     - a list of references to the `ObjectTreeItem`s that share this `ObjectTreeItemData`,
@@ -106,7 +106,7 @@ To greatly improve the `ObjectTree`'s architecture I took full advantage of how 
 
 With these classes set up, it's now possible to have only 2 `QHash`es:
 - The first one connects a unique item's id to the corresponding `ObjectTreeItem`.
-- The second one connects a `QString` to the corresponding `ObjectTreeItemData` (since in BRL-CAD's databases all objects must have a unique name).
+- The second one connects a `QString` to the corresponding `ObjectTreeItemData` (since in **BRL-CAD**'s databases all objects must have a unique name).
 
 All of this work allows us now to work with the items of the `ObjectTree` in a truly object-oriented way, making the code much clearer and more maintainable.
 
@@ -118,7 +118,7 @@ The results of my work are as follows:
 - Less memory is allocated the more frequently objects occur multiple times in the database tree (slightly more memory than before if all objects appear only once, mostly because of memory alignment reasons).
 - `ObjectTree` building time is down by an average of 66.4% (97.8% in the best situation, 24.4% in the worst situation).
 
-These conclusions come from the following data table, which was created by testing the old and the new `ObjectTree` on 39 standard BRL-CAD databases (that can be found [here](https://github.com/BRL-CAD/brlcad/tree/main/db)).
+These conclusions come from the following data table, which was created by testing the old and the new `ObjectTree` on 39 standard **BRL-CAD** databases (that can be found [here](https://github.com/BRL-CAD/brlcad/tree/main/db)).
 
 
 <div align="center">
@@ -498,7 +498,7 @@ The new `ObjectTree` required many changes across the entire code, to adapt ever
 
 ### Changes Made to MOOSE
 
-MOOSE required some new functionalities and modifications.
+**MOOSE** required some new functionalities and modifications.
 
 My mentor Daniel Rossberg created hooks for registering and deregistering callback functions through the underlying methods `db_add_changed_clbk()` and `db_rm_changed_clbk()`. These callback functions are called when an object in the database is added/removed/modified. The arguments of the callback were a reference to the object and an `enum` that indicates whether said object was added/removed/modified.
 
@@ -506,23 +506,23 @@ While testing this new functionality, I found some issues related to having a re
 
 Daniel Rossberg also added a way to call the registered callback if a combination's children reference changes, using the underlying methods `db_add_update_nref_clbk()` and `db_rm_update_nref_clbk()`.
 
-Finally, I also modified the `Parse()` method (inside the `CommandString` module), the method that handles the execution of GED commands, in order for it to return more information about the execution result. This additional information will be used by the new console to handle some specific commands.
+Finally, I also modified the `Parse()` method (inside the `CommandString` module), the method that handles the execution of **GED** commands, in order for it to return more information about the execution result. This additional information will be used by the new console to handle some specific commands.
 
 **For details, refer to the pull requests: [#3](https://github.com/BRL-CAD/arbalest/pull/3), [#5](https://github.com/BRL-CAD/arbalest/pull/5), [#71](https://github.com/BRL-CAD/arbalest/pull/71).**
 
 ### The GED Console
 
-The GED console is the core of my proposed project.
+The **GED** console is the core of my proposed project.
 
-The actual `Console` `QWidget` is not very complex and is mostly based on `libqtcad`'s `QgConsole` (the console that is used in qged), with some modifications to simplify it and adapt it to call MOOSE's methods.
+The actual `Console` `QWidget` is not very complex and is mostly based on `libqtcad`'s `QgConsole` (the console that is used in **qged**), with some modifications to simplify it and adapt it to call **MOOSE**'s methods.
 
-The previously described changes to MOOSE made it easy to implement support for all commands, and with the new `ObjectTree` it was easy to add callbacks for when a command caused changes in the database.
+The previously described changes to **MOOSE** made it easy to implement support for all commands, and with the new `ObjectTree` it was easy to add callbacks for when a command caused changes in the database.
 
 The most challenging part was creating methods that to update the `ObjectTree` after a command execution. To do that I created some methods for when an object is added/removed/modified, that allowed queuing Qt signals. This way, when these queued signals actually called the connected slots, it meant that the added/removed/modified objects were fully created/modified/removed, so that updating these objects could proceed smoothly.
 
 After this, I created an algorithm that goes through the entire database tree and, for each node, checks if anything is different in the tree structure, and if so, updates it.
 
-Finally, I revised many components of the GUI, such as `Properties`, `ObjectTreeWidget`, and many more, so that they would be able to manage the new situations introduced by certain GED commands. An example of these situations are the "kill commands" (`kill`, `killall`, `killtree` and `killrefs`), which, for the first time, introduced the possibility of destroying objects in the database. This required ensuring that if an object was removed from the database, all parts of the GUI would update correctly.
+Finally, I revised many components of the GUI, such as `Properties`, `ObjectTreeWidget`, and many more, so that they would be able to manage the new situations introduced by certain **GED** commands. An example of these situations are the "kill commands" (`kill`, `killall`, `killtree` and `killrefs`), which, for the first time, introduced the possibility of destroying objects in the database. This required ensuring that if an object was removed from the database, all parts of the GUI would update correctly.
 
 **For details, refer to the pull requests: [#67](https://github.com/BRL-CAD/arbalest/pull/67), [#68](https://github.com/BRL-CAD/arbalest/pull/68), [#69](https://github.com/BRL-CAD/arbalest/pull/69), [#70](https://github.com/BRL-CAD/arbalest/pull/70), [#71](https://github.com/BRL-CAD/arbalest/pull/71)**.
 
@@ -670,7 +670,7 @@ Other minor bug fixes and tweaks include:
             <td>August 10th, 2025</td>
             <td><a href="https://github.com/BRL-CAD/arbalest/pull/67">New <code>Console</code> for arbalest (clone from <code>libqtcad</code>'s <code>QgConsole</code>, but using MOOSE) [BRL-CAD/arbalest/PR#67]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>Created the <code>QWidget</code> <code>Console</code>, heavily based on <code>libqtcad</code>'s <code>QgConsole</code>, but without having direct connections to BRL-CAD's internal libraries, and connecting instead only to MOOSE functions.</td>
+            <td>Created the <code>QWidget</code> <code>Console</code>, heavily based on <code>libqtcad</code>'s <code>QgConsole</code>, but without having direct connections to **BRL-CAD**'s internal libraries, and connecting instead only to **MOOSE** functions.</td>
         </tr>
         <tr>
             <td>August 21th, 2025</td>
@@ -682,7 +682,7 @@ Other minor bug fixes and tweaks include:
             <td>August 23th, 2025</td>
             <td><a href="https://github.com/BRL-CAD/arbalest/pull/69">Allow the <code>ObjectTree</code> to update itself after a command execution [BRL-CAD/arbalest/PR#69]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>Added methods to <code>ObjectTree</code> that allow it to update itself when a GED command that modified the geometry database was executed.</td>
+            <td>Added methods to <code>ObjectTree</code> that allow it to update itself when a **GED** command that modified the geometry database was executed.</td>
         </tr>
         <tr>
             <td>Pending review</td>
@@ -700,7 +700,7 @@ Other minor bug fixes and tweaks include:
             <td>August 8th, 2025</td>
             <td><a href="https://github.com/BRL-CAD/MOOSE/pull/3">Modified <code>Parse()</code> method so that it returns additional information [BRL-CAD/MOOSE/PR#3]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>Modified the <code>Parse()</code> method (which handles the execution of GED commands) so that it returns additional information about the execution result.</td>
+            <td>Modified the <code>Parse()</code> method (which handles the execution of **GED** commands) so that it returns additional information about the execution result.</td>
         </tr>
         <tr>
             <td>August 11th, 2025</td>
@@ -713,18 +713,18 @@ Other minor bug fixes and tweaks include:
 
 </div>
 
-## Conclusion
+## Conclusions
 
-This project successfully integrated a MOOSE-based qged-like GED console into Arbalest, significantly improved the `ObjectTree` architecture, and enhanced cross-platform GUI consistency.
+This project successfully integrated a **MOOSE**-based **qged**-like **GED** console into **arbalest**, significantly improved the `ObjectTree` architecture, and enhanced cross-platform GUI consistency.
 
-These changes will hopefully lay the groundwork for further merging of arbalest and qged, and for future improvements to BRL-CAD's user interfaces.
+These changes will hopefully lay the groundwork for further merging of **arbalest** and **qged**, and for future improvements to **BRL-CAD**'s user interfaces.
 
 ## Future Work
 
 Future work that still needs to be done is the following:
 
-- Resolve issues in BRL-CAD's core libraries that affect certain GED commands, due to the recently added but not fully tested "in-memory databases".
-- Continue merging arbalest and qged.
+- Resolve issues in **BRL-CAD**'s core libraries that affect certain **GED** commands, due to the recently added but not fully tested "in-memory databases".
+- Continue merging **arbalest** and **qged**.
 - Improve support and testing for macOS.
 
 ## Acknowledgements
@@ -733,7 +733,7 @@ I want to deeply thank Daniel Rossberg for being an outstanding mentor and devel
 
 I also want to thank the organization administrator, Christopher Sean Morrison, for always being present and supportive throughout the entire summer.
 
-And obviously I also want to thank everyone else in the great BRL-CAD community who helped me during this project.
+And obviously I also want to thank everyone else in the great **BRL-CAD** community who helped me during this project.
 
 ## References
 
