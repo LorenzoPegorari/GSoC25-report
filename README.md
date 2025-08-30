@@ -494,7 +494,7 @@ These conclusions come from the following data table, which was created by testi
 
 The new `ObjectTree` required many changes across the entire code, to adjust everything to the new `ObjectTree` structure.
 
-For details, refer to the pull requests: [#66](https://github.com/BRL-CAD/arbalest/pull/66).
+**For details, refer to the pull requests: [#66](https://github.com/BRL-CAD/arbalest/pull/66).**
 
 ### Changes Made to MOOSE
 
@@ -546,7 +546,7 @@ Many changes were made to uniform how the `QWidget`s look on Windows and Linux, 
 
 Initially I reverted the hacks done to create a personalized title bar that acted also as a menu bar. This hacks caused many portability issues (particularly on macOS), so I simply deleted them and reverted the title bar to it's default Qt look.
 
-After that, I focused on fixing the background color issues that many widgets had on Linux (particularly the document area buttons), and uniforming how everything looks (borders, margins, paddings, sizes, ...). While working on these issues, I completely reworked the `Qy Style Sheet` *arbalest_simple.qss*", making it much more clearer, concise and precise, 
+After that, I focused on fixing the background color issues that many widgets had on Linux (particularly the document area buttons), and uniforming how everything looks (borders, margins, paddings, sizes, ...). While working on these issues, I completely reworked the `Qy Style Sheet` "*arbalest_simple.qss*", making it much more clearer, concise and precise, 
 
 In the end I added support for changing themes at runtime (without having to reopen the application).
 
@@ -607,7 +607,7 @@ In the end I added support for changing themes at runtime (without having to reo
 ## Minor Miscellaneous Improvements
 
 Other minor bug fixes and tweaks were done:
-- Removed <code>using</code> directives in header files, in order to do fix the error <code>rpcndr.h: 'byte': ambiguous symbol</code> when building on Windows: [#59](https://github.com/BRL-CAD/arbalest/pull/59).
+- Removed <code>using</code> directives in header files, in order to do fix the error <code>rpcndr.h: 'byte': ambiguous symbol</code> when building on Windows: **[#59](https://github.com/BRL-CAD/arbalest/pull/59)**.
 
 ## Pull Requests
 
