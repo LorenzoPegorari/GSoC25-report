@@ -4,7 +4,7 @@
 
 ---
 
-> **Tips on how to read the logs**:
+> _**Tips on how to read the logs**_:
 >
 > In the "**PRs**" section you will find all the pull requests (PRs) related to my *Google Summer of Code 2025* project. 
 >

@@ -84,28 +84,50 @@ The proposal incuded an idea for adding a functionality that would have given th
 
 The `ObjectTree` is an essential class which has task of representing the open geometric database, particularly the tree structure of the objects in a database.
 
-> <svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg> Note
+> _**Note**_:
 >
-> Text
+> It's important to notice that a BRL-CAD database is composed of two objects: *primitives* (which are the actual solids) and *combinations* (which are groups that contain other combinations and/or primitives).
+> BRL-CAD's databases allow primitives and combinations to be inside many different combinations at the same time. This means that the same object, even though it's defined only once in memory, can be a children of many combinations simultaneously, so it can appear many times inside the tree that represents the objects of a database.
 
-Previouslt the `ObjectTree` was mainly composed of many `QHash`es that connected an unique item id, in which an item is a node in the database tree instead in the   to one of the geometry object property. For example:
+Previously the `ObjectTree` was mainly composed of many `QHash`es that connected an unique item's id, in which an item is a node in the database tree, to one property of the corresponding geometry object. For example:
 ```c++
-// fullPathMap connects an object id to the corresponding object's path
+// fullPathMap connects an item id to the corresponding object's path
 QHash<int, QString> fullPathMap;
 
-// objectIdParentObjectIdMap connects an object id to the object id of the corresponding object's parent
+// objectIdParentObjectIdMap connects an item id to the item id of the corresponding item's parent
 QHash<int, int> objectIdParentObjectIdMap;
 ```
 
-This architecture, even though it's extremely simple. obviously causes many issues, particularly regarding the building speed of the `ObjectTree`, because we need to fill many `QHash`es, and in the case in which we need to retrieve many object properties, because we need to search the same object id inside many `QHash`es.
+This architecture has the privilege of being extremely simple, but obviously has many issues:
+- The `ObjectTree`'s building speed after opening a file is pretty slow, because we need to recursively go through the database tree and fill out many `QHash`es with the properties of each node.
+- In the situation in which we need to retrieve many properties of the same item, we need to search the same item's id inside many `QHash`es, instead of looking only once.
 
-Also, it's important to notice that a BRL-CAD database is composed of two objects: primitives (which are the actual solids) and combinations (which are groups that contain other combinations and/or primitives). BRL-CAD's databases allow the primitives and the combinations to be inside many different combinations at the same time. This means that the same object can appear many times inside the tree that represent the objects of a database.
+My idea to greatly improve the `ObjectTree`'s architecture is to take full advantage of how BRL-CAD's databases are structured, by defining the two following classes:
+- `ObjectTreeItem`, which represents a node in the database tree. It contains the following properties:
+    - a reference to the `ObjectTreeItem` parent,
+    - a list of references to the `ObjectTreeItem`s children,
+    - a reference to the `ObjectTreeItemData` that represents the BRL-CAD's object in the current node in the database tree,
+    - some specific properties for a node in the database tree (eg: the visibility state of the node, the unique item id)
+- `ObjectTreeItemData`, which represents a object in the database. It contains the following properties:
+    - a list of references to the `ObjectTreeItem`s that share this `ObjectTreeItemData`,
+    - some specific properties for a object in the database (eg: name, if it's a solid or a combination, color).
 
-This is extremely important, because the old `QHash`-based architecture, with "unique objects", was refering to nodes in the database tree instead of actual objects in the database. This means that it was possibly creating many times the same object
+With these classes set up, it's now possible to have only 2 `QHash`es:
+- The first one connects an unique item's id to the corresponding `ObjectTreeItem`.
+- The second one connects a `QString` to the corresponding `ObjectTreeItemData` (since in BRL-CAD's databases all objects must have an unique name).
 
-My idea was to greatly improve how 
+All of this work allows us now to work with the items of the `ObjectTree` in a truly object-oriented way, making the code much clearer and more mantainable.
 
-, with a new `ObjectTree`, in which a single `QHash` connects an id to an actual object that contains all the properties of a geometry object</td> 
+Also, making it so that all object-specific properties are contained inside `ObjectTreeItemData`, which is shared across many `ObjectTreeItem`, allows us to allocate memory for the object only once, and share it across all items. This also means that it is now extremely simple to change properties of an object, without having to rewrite all corresponding items.
+
+Finally, I also reworked the "building `ObjectTree`" algorithm, making it more efficient and easier to expand if in the future more object properties are added.
+
+The results of my work is that now:
+- Less memory is allocated the more objects occurr many times in the database tree (a little bit more memory then before if all objects appear only once, mostly because of memory alignment reasons).
+- `ObjectTree` building time is down by an average of $66.4\%$ ($97.8\%$ in the best situation, $24.4\%$ in the worst situation).
+
+With this calculations I'm refering to the following data table, which was created by testing the old and the new `ObjectTree` on 39 standard BRL-CAD databases (that can be found [here](https://github.com/BRL-CAD/brlcad/tree/main/db)).
+
 
 <div align="center">
 
@@ -116,6 +138,9 @@ My idea was to greatly improve how
             <th>Average time old [μs]</th>
             <th>Average time new [μs]</th>
             <th>Time decrease</th>
+            <th>No. of objects</th>
+            <th>No. of nodes</th>
+            <th>No. nodes per object</th>
         </tr>
     </thead>
     <tbody>
@@ -124,234 +149,351 @@ My idea was to greatly improve how
             <td>136595,333</td>
             <td>3015,467</td>
             <td>97,792%</td>
+            <td>834</td>
+            <td>835</td>
+            <td>1,001</td>
         </tr>
         <tr>
             <th>havoc.g</th>
             <td>521648,033</td>
             <td>31060,400</td>
             <td>94,046%</td>
+            <td>2.952</td>
+            <td>8.719</td>
+            <td>2,954</td>
         </tr>
         <tr>
             <th>goliath.g</th>
             <td>227395,900</td>
             <td>17390,867</td>
             <td>92,352%</td>
+            <td>217</td>
+            <td>5.284</td>
+            <td>24,350</td>
         </tr>
         <tr>
             <th>m35.g</th>
             <td>279974,600</td>
             <td>25470,000</td>
             <td>90,903%</td>
+            <td>2.080</td>
+            <td>4.241</td>
+            <td>2,039</td>
         </tr>
         <tr>
             <th>castle.g</th>
             <td>31985,833</td>
             <td>4053,567</td>
             <td>87,327%</td>
+            <td>125</td>
+            <td>823</td>
+            <td>6,584</td>
         </tr>
         <tr>
             <th>tank_car.g</th>
             <td>40935,367</td>
             <td>6102,100</td>
             <td>85,093%</td>
+            <td>645</td>
+            <td>1.301</td>
+            <td>2,017</td>
         </tr>
         <tr>
             <th>cray.g</th>
             <td>10066,467</td>
             <td>1556,033</td>
             <td>84,542%</td>
+            <td>60</td>
+            <td>404</td>
+            <td>6,733</td>
         </tr>
         <tr>
             <th>cube.g</th>
             <td>16964,633</td>
             <td>2671,067</td>
             <td>84,255%</td>
+            <td>61</td>
+            <td>546</td>
+            <td>8,951</td>
         </tr>
         <tr>
             <th>die.g</th>
             <td>2356,700</td>
             <td>395,133</td>
             <td>83,234%</td>
+            <td>43</td>
+            <td>102</td>
+            <td>2,372</td>
         </tr>
         <tr>
             <th>xmp.g</th>
             <td>8374,900</td>
             <td>1426,800</td>
             <td>82,963%</td>
+            <td>53</td>
+            <td>398</td>
+            <td>7,509</td>
         </tr>
         <tr>
             <th>star.g</th>
             <td>6679,400</td>
             <td>1497,033</td>
             <td>77,587%</td>
+            <td>199</td>
+            <td>312</td>
+            <td>1,568</td>
         </tr>
         <tr>
             <th>bldg391.g</th>
             <td>16193,933</td>
             <td>3660,800</td>
             <td>77,394%</td>
+            <td>383</td>
+            <td>754</td>
+            <td>1,969</td>
         </tr>
         <tr>
             <th>toyjeep.g</th>
             <td>11734,767</td>
             <td>2715,133</td>
             <td>76,862%</td>
+            <td>375</td>
+            <td>428</td>
+            <td>1,141</td>
         </tr>
         <tr>
             <th>annual_gift_man.g</th>
             <td>6201,500</td>
             <td>1439,600</td>
             <td>76,786%</td>
+            <td>148</td>
+            <td>271</td>
+            <td>1,831</td>
         </tr>
         <tr>
             <th>lgt-test.g</th>
             <td>5166,800</td>
             <td>1204,833</td>
             <td>76,681%</td>
+            <td>72</td>
+            <td>227</td>
+            <td>3,153</td>
         </tr>
         <tr>
             <th>kman.g</th>
             <td>7267,067</td>
             <td>1757,100</td>
             <td>75,821%</td>
+            <td>122</td>
+            <td>328</td>
+            <td>2,689</td>
         </tr>
         <tr>
             <th>bearing.g</th>
             <td>967,500</td>
             <td>245,167</td>
             <td>74,660%</td>
+            <td>39</td>
+            <td>48</td>
+            <td>1,231</td>
         </tr>
         <tr>
             <th>galileo.g</th>
             <td>2518,833</td>
             <td>646,967</td>
             <td>74,315%</td>
+            <td>61</td>
+            <td>109</td>
+            <td>1,787</td>
         </tr>
         <tr>
             <th>radialgrid.g</th>
             <td>1097,567</td>
             <td>290,800</td>
             <td>73,505%</td>
+            <td>32</td>
+            <td>51</td>
+            <td>1,594</td>
         </tr>
         <tr>
             <th>truck.g</th>
             <td>22349,433</td>
             <td>6465,400</td>
             <td>71,071%</td>
+            <td>366</td>
+            <td>435</td>
+            <td>1,189</td>
         </tr>
         <tr>
             <th>aet.g</th>
             <td>2586,233</td>
             <td>764,700</td>
             <td>70,432%</td>
+            <td>57</td>
+            <td>133</td>
+            <td>2,333</td>
         </tr>
         <tr>
             <th>demo.g</th>
             <td>6670,700</td>
             <td>1994,067</td>
             <td>70,107%</td>
+            <td>178</td>
+            <td>465</td>
+            <td>2,612</td>
         </tr>
         <tr>
             <th>traffic_light.g</th>
             <td>95068,733</td>
             <td>32956,033</td>
             <td>65,335%</td>
+            <td>138</td>
+            <td>690</td>
+            <td>5,000</td>
         </tr>
         <tr>
             <th>shipping_container.g</th>
             <td>22419,667</td>
             <td>7780,067</td>
             <td>65,298%</td>
+            <td>383</td>
+            <td>391</td>
+            <td>1,021</td>
         </tr>
         <tr>
             <th>ktank.g</th>
             <td>7275,533</td>
             <td>2609,133</td>
             <td>64,138%</td>
+            <td>243</td>
+            <td>352</td>
+            <td>1,449</td>
         </tr>
         <tr>
             <th>axis.g</th>
             <td>1022,267</td>
             <td>438,700</td>
             <td>57,086%</td>
+            <td>35</td>
+            <td>41</td>
+            <td>1,171</td>
         </tr>
         <tr>
             <th>crod.g</th>
             <td>638,667</td>
             <td>276,833</td>
             <td>56,654%</td>
+            <td>26</td>
+            <td>32</td>
+            <td>1,231</td>
         </tr>
         <tr>
             <th>operators.g</th>
             <td>2365,900</td>
             <td>1069,200</td>
             <td>54,808%</td>
+            <td>15</td>
+            <td>95</td>
+            <td>6,333</td>
         </tr>
         <tr>
             <th>pic.g</th>
             <td>628,400</td>
             <td>298,233</td>
             <td>52,541%</td>
+            <td>27</td>
+            <td>28</td>
+            <td>1,037</td>
         </tr>
         <tr>
             <th>moss.g</th>
             <td>429,633</td>
             <td>211,333</td>
             <td>50,811%</td>
+            <td>15</td>
+            <td>15</td>
+            <td>1,000</td>
         </tr>
         <tr>
             <th>rounds.g</th>
             <td>492,767</td>
             <td>245,933</td>
             <td>50,091%</td>
+            <td>20</td>
+            <td>25</td>
+            <td>1,250</td>
         </tr>
         <tr>
             <th>woodsman.g</th>
             <td>624,833</td>
             <td>323,633</td>
             <td>48,205%</td>
+            <td>24</td>
+            <td>26</td>
+            <td>1,083</td>
         </tr>
         <tr>
             <th>terra.g</th>
             <td>414,367</td>
             <td>216,733</td>
             <td>47,695%</td>
+            <td>12</td>
+            <td>15</td>
+            <td>1,250</td>
         </tr>
         <tr>
             <th>wave.g</th>
             <td>653,667</td>
             <td>372,800</td>
             <td>42,968%</td>
-        </tr>
-        <tr>
-            <th>cornell.g</th>
-            <td>544,233</td>
-            <td>342,533</td>
-            <td>37,061%</td>
+            <td>25</td>
+            <td>25</td>
+            <td>1,000</td>
         </tr>
         <tr>
             <th>cornell-kunigami.g</th>
             <td>540,900</td>
             <td>348,800</td>
+            <td>37,061%</td>
+            <td>21</td>
+            <td>21</td>
+            <td>1,000</td>
+        </tr>
+        <tr>
+            <th>cornell.g</th>
+            <td>544,233</td>
+            <td>342,533</td>
             <td>35,515%</td>
+            <td>20</td>
+            <td>20</td>
+            <td>1,000</td>
         </tr>
         <tr>
             <th>world.g</th>
             <td>502,733</td>
             <td>350,300</td>
             <td>30,321%</td>
+            <td>18</td>
+            <td>18</td>
+            <td>1,000</td>
         </tr>
         <tr>
             <th>boolean-ops.g</th>
             <td>458,833</td>
             <td>325,700</td>
             <td>29,016%</td>
+            <td>13</td>
+            <td>25</td>
+            <td>1,923</td>
         </tr>
         <tr>
             <th>prim.g</th>
             <td>231,867</td>
             <td>175,533</td>
             <td>24,296%</td>
+            <td>8</td>
+            <td>8</td>
+            <td>1,000</td>
         </tr>
     </tbody>
 </table>
