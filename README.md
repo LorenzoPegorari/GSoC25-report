@@ -2,9 +2,9 @@
 
 <img align="center" src="assets/imgs/logos/logos.png" alt="GSoC_BRLCAD_arbalest_logo">
 
-<h4 align="center"><a href="https://gist.github.com/LorenzoPegorari/adf89487a5adbdd7741417ea286bfaf5">Read as a GitHub Gist!</a></h4>
-
 ---
+
+<div align="center"><i><a href="https://gist.github.com/LorenzoPegorari/adf89487a5adbdd7741417ea286bfaf5">Read as a GitHub Gist!</a></i></div>
 
 ## Project
 **Developing a MOOSE-based Console for arbalest: a first step to merge arbalest and qged**
