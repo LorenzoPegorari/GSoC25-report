@@ -43,27 +43,29 @@ This project sets out to take the initial step in merging *BRL-CAD*'s two in-dev
 
 Over the past few years, significant efforts have been made to create a new Graphical User Interface (GUI) for BRL-CAD, with the goal of replacing the two outdated but still-used GUIs: "*mged*" and "*archer*".
 
-The two most successful efforts have been "**arbalest**" and "**qged**". Although both are Qt-based GUIs that share the same goal, they have fundamentally different implementation philosophies:
-- **arbalest** is a clean implementation built on top of "**MOOSE**", BRL-CAD's new lightweight, modular, object-oriented C++ API. This approach allows developers to focus on creating maintainable, easily scalable code and adhering to good coding practices.
-- **qged**, in contrast, relies on low-level calls directly to BRL-CAD's internal libraries. While this approach offers significant advantages, particularly for creating really advanced features, this low-level access has required modifications to the BRL-CAD core libraries, potentially making the GUI less scalable and harder to maintain.
+The two most successful efforts have been "**arbalest**" and "**qged**".
 
-For my *Google Summer of Code 2025* project, I worked on enhancing the more successful GUI arbalest, taking the first step in merging arbalest and qged, specifically by transferring qged's sophisticated *GED* console into arbalest, while preserving the GUI's distinctive clean and easy-to-scale architecture.
+Although both are Qt-based GUIs that share the same goal, they have fundamentally different implementation philosophies:
+- **arbalest** is a clean implementation built on top of "**MOOSE**", BRL-CAD's new lightweight, modular, object-oriented C++ API. This approach allows developers to focus on creating maintainable, easily scalable code and adhering to good coding practices.
+- **qged**, in contrast, relies on low-level calls directly to BRL-CAD's internal libraries. While this approach offers significant advantages, particularly for creating really advanced features, this low-level access has required modifications to BRL-CAD's core libraries, making the GUI less scalable and harder to maintain.
+
+For my *Google Summer of Code 2025* project, I worked on enhancing the more successful GUI arbalest, taking the first step in merging arbalest and qged, specifically by transferring qged's sophisticated *GED* (_**G**eometry **ED**iting library_, a CLI library for working on BRL-CAD geometry) console into arbalest, while preserving the GUI's distinctive clean and easy-to-scale architecture.
 
 Aside from this main objective, I will also tackle compatibility issues related to arbalest’s Qt widgets to ensure proper display across different OSs (Linux and Windows mainly), as well as resolve various GUI-related bugs.
 
 ### Goals
 
-The primary goals of the this project were:
+The primary goals of the project were:
 
-- **Improve MOOSE**: Improve the API MOOSE, partiularly creating links that allow a simple access to `libged`'s internal functions (the library that contains all GED-related functions)
-- **Create a qged-like GED console for arbalest**: Designing a `QWidget` console that supports command execution, comand completion, object names completion and command history.
+- **Improve MOOSE**: Improve the API MOOSE, particularly creating links that allow simple access to `libged`'s internal functions (the library that contains all GED-related functions)
+- **Create a qged-like GED console for arbalest**: Designing a `QWidget` console that supports GED command execution, command completion, object names completion and command history.
 - **Uniform the GUI across different OSs**: Rework the `Qt Style Sheet` in order to make the GUI appear the same on all OSs (focusing on Windows and Linux).
 - **Add support for changing themes at runtime**: Make it so that the light/dark themes can be switched without having to close and reopen the application.
 - **Revert the personalized title bar**: Go back to using the standard Qt title bar, in order to make arbalest more portable and easier to maintain.
 
 ### Abandoned Goals
 
-The proposal incuded an idea for adding a functionality let the user create new themes and modify already existing ones directly from within arbalest, making it simpler to customize the GUI. This idea was abandoned to prioritize the other more important goals.
+The proposal incuded an idea for adding a functionality that would have given the user the ability to create new themes (outside of the standard light/dark ones) and modify already existing ones directly from within arbalest, making it simpler to customize the GUI. This idea was abandoned to prioritize other more important goals.
 
 ## Implementation Details
 
@@ -80,9 +82,12 @@ The proposal incuded an idea for adding a functionality let the user create new 
 ### Reworking the `ObjectTree`
 
 
-The `ObjectTree` is a fonduamental class which has the duty of representing the opened geometry database.
+The `ObjectTree` is an essential class which has task of representing the open geometric database, particularly the tree structure of the objects in a database.
 
-Previouslt the `ObjectTree` was mainly composed of many `QHash`es that connected an unique id to one of the geometry object property. For example:
+> [!NOTE]
+> Text
+
+Previouslt the `ObjectTree` was mainly composed of many `QHash`es that connected an unique item id, in which an item is a node in the database tree instead in the   to one of the geometry object property. For example:
 ```c++
 // fullPathMap connects an object id to the corresponding object's path
 QHash<int, QString> fullPathMap;

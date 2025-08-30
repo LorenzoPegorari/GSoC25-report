@@ -139,3 +139,11 @@
     font-size: 105%;
     white-space: break-spaces;
 }
+
+.markdown-body .highlight pre, .markdown-body pre {
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: #656c7633;
+    line-height: 1.45;
+    overflow: auto;
+}
