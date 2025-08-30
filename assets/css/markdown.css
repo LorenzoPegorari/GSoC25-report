@@ -132,9 +132,10 @@
 
 /* Code */
 .markdown-body code, .markdown-body tt {
-    padding: .2em .4em;
     margin: 0;
-    white-space: break-spaces;
-    background-color: #656c7633;
+    padding: .2em .4em;
     border-radius: 6px;
+    background-color: #656c7633;
+    font-size: 105%;
+    white-space: break-spaces;
 }

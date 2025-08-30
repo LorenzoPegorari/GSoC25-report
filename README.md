@@ -57,7 +57,7 @@ The primary goals of the this project were:
 
 - **Improve MOOSE**: Improve the API MOOSE, partiularly creating links that allow a simple access to `libged`'s internal functions (the library that contains all GED-related functions)
 - **Create a qged-like GED console for arbalest**: Designing a `QWidget` console that supports command execution, comand completion, object names completion and command history.
-- **Uniform the GUI across different OSs**: Rework the `Qt Style Sheets` in order to make the GUI appear the same on all OSs (focusing on Windows and Linux).
+- **Uniform the GUI across different OSs**: Rework the `Qt Style Sheet` in order to make the GUI appear the same on all OSs (focusing on Windows and Linux).
 - **Add support for changing themes at runtime**: Make it so that the light/dark themes can be switched without having to close and reopen the application.
 - **Revert the personalized title bar**: Go back to using the standard Qt title bar, in order to make arbalest more portable and easier to maintain.
 
@@ -80,6 +80,26 @@ The proposal incuded an idea for adding a functionality let the user create new 
 ### Reworking the `ObjectTree`
 
 
+The `ObjectTree` is a fonduamental class which has the duty of representing the opened geometry database.
+
+Previouslt the `ObjectTree` was mainly composed of many `QHash`es that connected an unique id to one of the geometry object property. For example:
+```c++
+// fullPathMap connects an object id to the corresponding object's path
+QHash<int, QString> fullPathMap;
+
+// objectIdParentObjectIdMap connects an object id to the object id of the corresponding object's parent
+QHash<int, int> objectIdParentObjectIdMap;
+```
+
+This architecture, even though it's extremely simple. obviously causes many issues, particularly regarding the building speed of the `ObjectTree`, because we need to fill many `QHash`es, and in the case in which we need to retrieve many object properties, because we need to search the same object id inside many `QHash`es.
+
+Also, it's important to notice that a BRL-CAD database is composed of two objects: primitives (which are the actual solids) and combinations (which are groups that contain other combinations and/or primitives). BRL-CAD's databases allow the primitives and the combinations to be inside many different combinations at the same time. This means that the same object can appear many times inside the tree that represent the objects of a database.
+
+This is extremely important, because the old `QHash`-based architecture, with "unique objects", was refering to nodes in the database tree instead of actual objects in the database. This means that it was possibly creating many times the same object
+
+My idea was to greatly improve how 
+
+, with a new `ObjectTree`, in which a single `QHash` connects an id to an actual object that contains all the properties of a geometry object</td> 
 
 <div align="center">
 
@@ -332,25 +352,19 @@ The proposal incuded an idea for adding a functionality let the user create new 
 
 </div>
 
-## Minor Miscellaneous Improvements
+### Improving the `Qt Style Sheet`
 
-## Final Result
+Many changes were made to uniform how the `QWidget`s look on Windows and Linux, and to make the code easier to maintain.
 
-### New Console
+Initially I reverted the hacks done to create a personalized title bar that acted also as a menu bar. This hacks caused many portability issues (particularly on macOS), so I simply deleted them and reverted the title bar to it's default Qt look.
 
-**New Arbalest console on Linux (Ubuntu 24.04.1 LTS)**:
+After that, I focused on fixing the background color issues that many widgets had on Linux (particularly the document area buttons), and uniforming how everything looks (borders, margins, paddings, sizes, ...). While working on these issues, I completely reworked the `Qy Style Sheet` *arbalest_simple.qss*", making it much more clearer, concise and precise, 
 
-<video controls>
-  <source src="assets/videos/console-linux.mp4" type="video/mp4">
-</video>
+In the end I added support for changing themes at runtime (without having to reopen the application).
 
-**New Arbalest console on Windows (Windows 11)**:
+For details, refer to the pull requests: [#60](https://github.com/BRL-CAD/arbalest/pull/60), [#61](https://github.com/BRL-CAD/arbalest/pull/61), [#62](https://github.com/BRL-CAD/arbalest/pull/62), [#63](https://github.com/BRL-CAD/arbalest/pull/63), [#64](https://github.com/BRL-CAD/arbalest/pull/64).
 
-<video controls>
-  <source src="assets/videos/console-windows.mp4" type="video/mp4">
-</video>
-
-### New GUI
+#### New GUI
 
 **New Arbalest style with dark theme on Linux (Ubuntu 24.04.1 LTS)** *with theme change at runtime*:
 
@@ -376,7 +390,7 @@ The proposal incuded an idea for adding a functionality let the user create new 
   <source src="assets/videos/gui-new-windows-light.mp4" type="video/mp4">
 </video>
 
-### Old GUI
+#### Old GUI
 
 **Old Arbalest style with dark theme on Linux (Ubuntu 24.04.1 LTS)**:
 
@@ -400,6 +414,28 @@ The proposal incuded an idea for adding a functionality let the user create new 
 
 <video controls>
   <source src="assets/videos/gui-old-windows-light.mp4" type="video/mp4">
+</video>
+
+## Minor Miscellaneous Improvements
+
+Other minor bug fixes and tweaks were done:
+- Removed <code>using</code> directives in header files, in order to do fix the error <code>rpcndr.h: 'byte': ambiguous symbol</code> when building on Windows: [#59](https://github.com/BRL-CAD/arbalest/pull/59)
+- 
+
+## Final Result
+
+### New Console
+
+**New Arbalest console on Linux (Ubuntu 24.04.1 LTS)**:
+
+<video controls>
+  <source src="assets/videos/console-linux.mp4" type="video/mp4">
+</video>
+
+**New Arbalest console on Windows (Windows 11)**:
+
+<video controls>
+  <source src="assets/videos/console-windows.mp4" type="video/mp4">
 </video>
 
 ## Pull Requests
@@ -426,7 +462,7 @@ The proposal incuded an idea for adding a functionality let the user create new 
             <td>June 7th, 2025</td>
             <td><a href="https://github.com/BRL-CAD/arbalest/pull/60">Reverted the hacks done to create a personalized title bar [BRL-CAD/arbalest/PR#60]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>Reverted the hacks done to create a personalized title bar</td>
+            <td>Reverted the hacks done to create a personalized title bar, and went back to using the default Qt title bar for portability and manteinability reasons.</td>
         </tr>
         <tr>
             <td>June 15th, 2025</td>
@@ -450,7 +486,7 @@ The proposal incuded an idea for adding a functionality let the user create new 
             <td>June 17th, 2025</td>
             <td><a href="https://github.com/BRL-CAD/arbalest/pull/64">Added support for changing themes at runtime (without reopening arbalest) [BRL-CAD/arbalest/PR#64]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>Added support for changing themes at runtime (without having reopen the application)</td>
+            <td>Added support for changing themes at runtime (without having to reopen the application)</td>
         </tr>
         <tr>
             <td>August 15th, 2025</td>
