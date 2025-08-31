@@ -89,8 +89,8 @@
 
 /* Blockquote */
 .markdown-body blockquote {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 2%;
+    margin-right: 2%;
     border-left: 4px solid rgb(29, 149, 29);
     border-radius: 0 8px 8px 0;
     padding: 8px 0 8px 15px;
