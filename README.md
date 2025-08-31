@@ -671,7 +671,7 @@ Other minor bug fixes and tweaks include:
             <td>August 10th, 2025</td>
             <td><a href="https://github.com/BRL-CAD/arbalest/pull/67">New <code>Console</code> for arbalest (clone from <code>libqtcad</code>'s <code>QgConsole</code>, but using MOOSE) [BRL-CAD/arbalest/PR#67]</a></td>
             <td><img src="assets/imgs/merged-pr-icon.png" height="36px" /></td>
-            <td>Created the <code>QWidget</code> <code>Console</code>, heavily based on <code>libqtcad</code>'s <code>QgConsole</code>, but without having direct connections to <b>BRL-CAD</b>s internal libraries, and connecting instead only to <b>MOOSE</b> functions.</td>
+            <td>Created the <code>QWidget</code> <code>Console</code>, heavily based on <code>libqtcad</code>'s <code>QgConsole</code>, but without having direct connections to <b>BRL-CAD</b>'s internal libraries, and connecting instead only to <b>MOOSE</b> functions.</td>
         </tr>
         <tr>
             <td>August 21th, 2025</td>
