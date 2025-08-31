@@ -71,7 +71,7 @@
 
 /* Lists */
 .markdown-body ul, .markdown-body ol {
-    padding-left: 3%;
+    padding-left: 32px;
 }
 
 .markdown-body li {
@@ -89,6 +89,8 @@
 
 /* Blockquote */
 .markdown-body blockquote {
+    margin-left: 0;
+    margin-right: 0;
     border-left: 4px solid rgb(29, 149, 29);
     border-radius: 0 8px 8px 0;
     padding: 8px 0 8px 15px;
