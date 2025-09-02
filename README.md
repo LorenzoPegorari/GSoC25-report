@@ -718,14 +718,14 @@ Other minor bug fixes and tweaks include:
 
 This project successfully integrated a **MOOSE**-based **qged**-like **GED** console into **arbalest**, significantly improved the `ObjectTree` architecture, and enhanced cross-platform GUI consistency.
 
-These changes will hopefully lay the groundwork for further merging of **arbalest** and **qged**, and for future improvements to **BRL-CAD**'s user interfaces.
+These changes will hopefully lay the groundwork for further merging of **arbalest** and **qged**, and for future **arbalest** specific features.
 
 ## Future Work
 
 Future work that still needs to be done is the following:
 
 - Resolve issues in **BRL-CAD**'s core libraries that affect certain **GED** commands, due to the recently added but not fully tested "in-memory databases".
-- Continue merging **arbalest** and **qged**.
+- Further merge **arbalest** and **qged**.
 - Improve support and testing for macOS.
 
 ## Acknowledgements
