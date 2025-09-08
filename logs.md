@@ -144,4 +144,4 @@
         - *08/28 Thu*: Fixed a <ins>bug where a new (meaning created by a the execution of a **GED** command) top-level combination's children where not correctly update</ins><sup>#70</sup> to [PR#70](https://github.com/BRL-CAD/arbalest/pull/70). Kept working on the final project report
         - *08/29 Fri*: Kept working on the final project report
         - *08/30 Sat*: **Completed the final project report, and done the final submission!**
-    - **Final evaluation: ...**
+    - **Final evaluation: Passed!**
