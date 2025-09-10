@@ -128,365 +128,365 @@ These conclusions come from the following data table, which was created by testi
     <thead>
         <tr>
             <th>Database name</th>
+            <th>No. of nodes</th>
+            <th>No. of objects</th>
+            <th>No. nodes per object</th>
             <th>Average time old [μs]</th>
             <th>Average time new [μs]</th>
             <th>Time decrease</th>
-            <th>No. of objects</th>
-            <th>No. of nodes</th>
-            <th>No. nodes per object</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <th>sphflake.g</th>
+            <td>835</td>
+            <td>834</td>
+            <td>1.001</td>
             <td>136595.333</td>
             <td>3015.467</td>
             <td>97.792%</td>
-            <td>834</td>
-            <td>835</td>
-            <td>1.001</td>
         </tr>
         <tr>
             <th>havoc.g</th>
+            <td>8.719</td>
+            <td>2.952</td>
+            <td>2.954</td>
             <td>521648.033</td>
             <td>31060.400</td>
             <td>94.046%</td>
-            <td>2.952</td>
-            <td>8.719</td>
-            <td>2.954</td>
         </tr>
         <tr>
             <th>goliath.g</th>
+            <td>5.284</td>
+            <td>217</td>
+            <td>24.350</td>
             <td>227395.900</td>
             <td>17390.867</td>
             <td>92.352%</td>
-            <td>217</td>
-            <td>5.284</td>
-            <td>24.350</td>
         </tr>
         <tr>
             <th>m35.g</th>
+            <td>4.241</td>
+            <td>2.080</td>
+            <td>2.039</td>
             <td>279974.600</td>
             <td>25470.000</td>
             <td>90.903%</td>
-            <td>2.080</td>
-            <td>4.241</td>
-            <td>2.039</td>
         </tr>
         <tr>
             <th>castle.g</th>
+            <td>823</td>
+            <td>125</td>
+            <td>6.584</td>
             <td>31985.833</td>
             <td>4053.567</td>
             <td>87.327%</td>
-            <td>125</td>
-            <td>823</td>
-            <td>6.584</td>
         </tr>
         <tr>
             <th>tank_car.g</th>
+            <td>1.301</td>
+            <td>645</td>
+            <td>2.017</td>
             <td>40935.367</td>
             <td>6102.100</td>
             <td>85.093%</td>
-            <td>645</td>
-            <td>1.301</td>
-            <td>2.017</td>
         </tr>
         <tr>
             <th>cray.g</th>
+            <td>404</td>
+            <td>60</td>
+            <td>6.733</td>
             <td>10066.467</td>
             <td>1556.033</td>
             <td>84.542%</td>
-            <td>60</td>
-            <td>404</td>
-            <td>6.733</td>
         </tr>
         <tr>
             <th>cube.g</th>
+            <td>546</td>
+            <td>61</td>
+            <td>8.951</td>
             <td>16964.633</td>
             <td>2671.067</td>
             <td>84.255%</td>
-            <td>61</td>
-            <td>546</td>
-            <td>8.951</td>
         </tr>
         <tr>
             <th>die.g</th>
+            <td>102</td>
+            <td>43</td>
+            <td>2.372</td>
             <td>2356.700</td>
             <td>395.133</td>
             <td>83.234%</td>
-            <td>43</td>
-            <td>102</td>
-            <td>2.372</td>
         </tr>
         <tr>
             <th>xmp.g</th>
+            <td>398</td>
+            <td>53</td>
+            <td>7.509</td>
             <td>8374.900</td>
             <td>1426.800</td>
             <td>82.963%</td>
-            <td>53</td>
-            <td>398</td>
-            <td>7.509</td>
         </tr>
         <tr>
             <th>star.g</th>
+            <td>312</td>
+            <td>199</td>
+            <td>1.568</td>
             <td>6679.400</td>
             <td>1497.033</td>
             <td>77.587%</td>
-            <td>199</td>
-            <td>312</td>
-            <td>1.568</td>
         </tr>
         <tr>
             <th>bldg391.g</th>
+            <td>754</td>
+            <td>383</td>
+            <td>1.969</td>
             <td>16193.933</td>
             <td>3660.800</td>
             <td>77.394%</td>
-            <td>383</td>
-            <td>754</td>
-            <td>1.969</td>
         </tr>
         <tr>
             <th>toyjeep.g</th>
+            <td>428</td>
+            <td>375</td>
+            <td>1.141</td>
             <td>11734.767</td>
             <td>2715.133</td>
             <td>76.862%</td>
-            <td>375</td>
-            <td>428</td>
-            <td>1.141</td>
         </tr>
         <tr>
             <th>annual_gift_man.g</th>
+            <td>271</td>
+            <td>148</td>
+            <td>1.831</td>
             <td>6201.500</td>
             <td>1439.600</td>
             <td>76.786%</td>
-            <td>148</td>
-            <td>271</td>
-            <td>1.831</td>
         </tr>
         <tr>
             <th>lgt-test.g</th>
+            <td>227</td>
+            <td>72</td>
+            <td>3.153</td>
             <td>5166.800</td>
             <td>1204.833</td>
             <td>76.681%</td>
-            <td>72</td>
-            <td>227</td>
-            <td>3.153</td>
         </tr>
         <tr>
             <th>kman.g</th>
+            <td>328</td>
+            <td>122</td>
+            <td>2.689</td>
             <td>7267.067</td>
             <td>1757.100</td>
             <td>75.821%</td>
-            <td>122</td>
-            <td>328</td>
-            <td>2.689</td>
         </tr>
         <tr>
             <th>bearing.g</th>
+            <td>48</td>
+            <td>39</td>
+            <td>1.231</td>
             <td>967.500</td>
             <td>245.167</td>
             <td>74.660%</td>
-            <td>39</td>
-            <td>48</td>
-            <td>1.231</td>
         </tr>
         <tr>
             <th>galileo.g</th>
+            <td>109</td>
+            <td>61</td>
+            <td>1.787</td>
             <td>2518.833</td>
             <td>646.967</td>
             <td>74.315%</td>
-            <td>61</td>
-            <td>109</td>
-            <td>1.787</td>
         </tr>
         <tr>
             <th>radialgrid.g</th>
+            <td>51</td>
+            <td>32</td>
+            <td>1.594</td>
             <td>1097.567</td>
             <td>290.800</td>
             <td>73.505%</td>
-            <td>32</td>
-            <td>51</td>
-            <td>1.594</td>
         </tr>
         <tr>
             <th>truck.g</th>
+            <td>435</td>
+            <td>366</td>
+            <td>1.189</td>
             <td>22349.433</td>
             <td>6465.400</td>
             <td>71.071%</td>
-            <td>366</td>
-            <td>435</td>
-            <td>1.189</td>
         </tr>
         <tr>
             <th>aet.g</th>
+            <td>133</td>
+            <td>57</td>
+            <td>2.333</td>
             <td>2586.233</td>
             <td>764.700</td>
             <td>70.432%</td>
-            <td>57</td>
-            <td>133</td>
-            <td>2.333</td>
         </tr>
         <tr>
             <th>demo.g</th>
+            <td>465</td>
+            <td>178</td>
+            <td>2.612</td>
             <td>6670.700</td>
             <td>1994.067</td>
             <td>70.107%</td>
-            <td>178</td>
-            <td>465</td>
-            <td>2.612</td>
         </tr>
         <tr>
             <th>traffic_light.g</th>
+            <td>690</td>
+            <td>138</td>
+            <td>5.000</td>
             <td>95068.733</td>
             <td>32956.033</td>
             <td>65.335%</td>
-            <td>138</td>
-            <td>690</td>
-            <td>5.000</td>
         </tr>
         <tr>
             <th>shipping_container.g</th>
+            <td>391</td>
+            <td>383</td>
+            <td>1.021</td>
             <td>22419.667</td>
             <td>7780.067</td>
             <td>65.298%</td>
-            <td>383</td>
-            <td>391</td>
-            <td>1.021</td>
         </tr>
         <tr>
             <th>ktank.g</th>
+            <td>352</td>
+            <td>243</td>
+            <td>1.449</td>
             <td>7275.533</td>
             <td>2609.133</td>
             <td>64.138%</td>
-            <td>243</td>
-            <td>352</td>
-            <td>1.449</td>
         </tr>
         <tr>
             <th>axis.g</th>
+            <td>41</td>
+            <td>35</td>
+            <td>1.171</td>
             <td>1022.267</td>
             <td>438.700</td>
             <td>57.086%</td>
-            <td>35</td>
-            <td>41</td>
-            <td>1.171</td>
         </tr>
         <tr>
             <th>crod.g</th>
+            <td>32</td>
+            <td>26</td>
+            <td>1.231</td>
             <td>638.667</td>
             <td>276.833</td>
             <td>56.654%</td>
-            <td>26</td>
-            <td>32</td>
-            <td>1.231</td>
         </tr>
         <tr>
             <th>operators.g</th>
+            <td>95</td>
+            <td>15</td>
+            <td>6.333</td>
             <td>2365.900</td>
             <td>1069.200</td>
             <td>54.808%</td>
-            <td>15</td>
-            <td>95</td>
-            <td>6.333</td>
         </tr>
         <tr>
             <th>pic.g</th>
+            <td>28</td>
+            <td>27</td>
+            <td>1.037</td>
             <td>628.400</td>
             <td>298.233</td>
             <td>52.541%</td>
-            <td>27</td>
-            <td>28</td>
-            <td>1.037</td>
         </tr>
         <tr>
             <th>moss.g</th>
+            <td>15</td>
+            <td>15</td>
+            <td>1.000</td>
             <td>429.633</td>
             <td>211.333</td>
             <td>50.811%</td>
-            <td>15</td>
-            <td>15</td>
-            <td>1.000</td>
         </tr>
         <tr>
             <th>rounds.g</th>
+            <td>25</td>
+            <td>20</td>
+            <td>1.250</td>
             <td>492.767</td>
             <td>245.933</td>
             <td>50.091%</td>
-            <td>20</td>
-            <td>25</td>
-            <td>1.250</td>
         </tr>
         <tr>
             <th>woodsman.g</th>
+            <td>26</td>
+            <td>24</td>
+            <td>1.083</td>
             <td>624.833</td>
             <td>323.633</td>
             <td>48.205%</td>
-            <td>24</td>
-            <td>26</td>
-            <td>1.083</td>
         </tr>
         <tr>
             <th>terra.g</th>
+            <td>15</td>
+            <td>12</td>
+            <td>1.250</td>
             <td>414.367</td>
             <td>216.733</td>
             <td>47.695%</td>
-            <td>12</td>
-            <td>15</td>
-            <td>1.250</td>
         </tr>
         <tr>
             <th>wave.g</th>
+            <td>25</td>
+            <td>25</td>
+            <td>1.000</td>
             <td>653.667</td>
             <td>372.800</td>
             <td>42.968%</td>
-            <td>25</td>
-            <td>25</td>
-            <td>1.000</td>
         </tr>
         <tr>
             <th>cornell-kunigami.g</th>
+            <td>21</td>
+            <td>21</td>
+            <td>1.000</td>
             <td>540.900</td>
             <td>348.800</td>
             <td>37.061%</td>
-            <td>21</td>
-            <td>21</td>
-            <td>1.000</td>
         </tr>
         <tr>
             <th>cornell.g</th>
+            <td>20</td>
+            <td>20</td>
+            <td>1.000</td>
             <td>544.233</td>
             <td>342.533</td>
             <td>35.515%</td>
-            <td>20</td>
-            <td>20</td>
-            <td>1.000</td>
         </tr>
         <tr>
             <th>world.g</th>
+            <td>18</td>
+            <td>18</td>
+            <td>1.000</td>
             <td>502.733</td>
             <td>350.300</td>
             <td>30.321%</td>
-            <td>18</td>
-            <td>18</td>
-            <td>1.000</td>
         </tr>
         <tr>
             <th>boolean-ops.g</th>
+            <td>25</td>
+            <td>13</td>
+            <td>1.923</td>
             <td>458.833</td>
             <td>325.700</td>
             <td>29.016%</td>
-            <td>13</td>
-            <td>25</td>
-            <td>1.923</td>
         </tr>
         <tr>
             <th>prim.g</th>
-            <td>231.867</td>
-            <td>175.533</td>
-            <td>24.296%</td>
             <td>8</td>
             <td>8</td>
             <td>1.000</td>
+            <td>231.867</td>
+            <td>175.533</td>
+            <td>24.296%</td>
         </tr>
     </tbody>
 </table>
